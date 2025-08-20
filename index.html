@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Facebook SDK -->
+    <meta property="og:url" content="https://www.facebook.com/casadeavivamientoyreinocerete">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Casa de Avivamiento y Reino Cerete">
+    <meta property="og:description" content="Un lugar donde experimentarás el amor de Dios y encontrarás tu propósito en Cristo">
+    <meta property="og:image" content="https://scontent.fclo9-1.fna.fbcdn.net/v/t39.30808-1/308508679_403324795297459_2966777305134579591_n.jpg">
+    <meta property="fb:app_id" content="">
 </head>
 <body>
     <!-- Navigation -->
@@ -30,6 +38,12 @@
                     <a href="#eventos" class="nav-link">Eventos</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#facebook" class="nav-link">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facebook/facebook-feed.html" class="nav-link">Publicaciones</a>
+                </li>
+                <li class="nav-item">
                     <a href="#contacto" class="nav-link">Contacto</a>
                 </li>
             </ul>
@@ -48,6 +62,9 @@
             <p class="hero-subtitle">Un lugar donde experimentarás el amor de Dios y encontrarás tu propósito en Cristo</p>
             <div class="hero-buttons">
                 <a href="#servicios" class="btn btn-primary">Únete a Nosotros</a>
+                <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-facebook-f"></i> Síguenos en Facebook
+                </a>
                 <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
             </div>
         </div>
@@ -101,27 +118,14 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <i class="fas fa-bible"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Culto Dominical</h3>
-                        <p>Únete a nosotros cada domingo para adoración, predicación y comunión</p>
-                        <div class="service-time">
-                            <i class="fas fa-clock"></i>
-                            <span>Domingos 10:00 AM</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
                         <i class="fas fa-child"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Ministerio Infantil</h3>
-                        <p>Enseñanza bíblica adaptada para niños con actividades divertidas</p>
+                        <h3>Discipulado del Reino</h3>
+                        <p>Formación espiritual profunda para el crecimiento en la fe</p>
                         <div class="service-time">
                             <i class="fas fa-clock"></i>
-                            <span>Domingos 10:00 AM</span>
+                            <span>Martes 7:00 PM</span>
                         </div>
                     </div>
                 </div>
@@ -130,24 +134,37 @@
                         <i class="fas fa-hands-praying"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Reunión de Oración</h3>
-                        <p>Tiempo de intercesión y búsqueda de la presencia de Dios</p>
+                        <h3>Servicio General</h3>
+                        <p>Tiempo de adoración, enseñanza y comunión fraternal</p>
                         <div class="service-time">
                             <i class="fas fa-clock"></i>
-                            <span>Miércoles 7:00 PM</span>
+                            <span>Jueves 7:00 PM</span>
                         </div>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Escuela Bíblica</h3>
-                        <p>Estudios profundos de la Palabra para crecimiento espiritual</p>
+                        <h3>Reunión de Jóvenes</h3>
+                        <p>Espacio especial para la juventud con adoración y enseñanza</p>
                         <div class="service-time">
                             <i class="fas fa-clock"></i>
-                            <span>Sábados 6:00 PM</span>
+                            <span>Sábado 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-bible"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Culto Dominical</h3>
+                        <p>Únete a nosotros cada domingo para adoración, predicación y comunión</p>
+                        <div class="service-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Domingo 8:00 AM</span>
                         </div>
                     </div>
                 </div>
@@ -170,10 +187,23 @@
                     </div>
                     <div class="event-content">
                         <h3>Noche de Adoración</h3>
-                        <p>Una noche especial de alabanza y adoración</p>
-                        <div class="event-time">
-                            <i class="fas fa-clock"></i>
-                            <span>7:00 PM</span>
+                        <div class="schedule-simple">
+                            <div class="schedule-row">
+                                <span class="day">Martes</span>
+                                <span class="time">7:00 PM</span>
+                            </div>
+                            <div class="schedule-row">
+                                <span class="day">Jueves</span>
+                                <span class="time">7:00 PM</span>
+                            </div>
+                            <div class="schedule-row">
+                                <span class="day">Sábados</span>
+                                <span class="time">7:00 PM</span>
+                            </div>
+                            <div class="schedule-row">
+                                <span class="day">Domingos</span>
+                                <span class="time">8:00 AM</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,6 +239,88 @@
         </div>
     </section>
 
+    <!-- Facebook Section -->
+    <section id="facebook" class="facebook-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Síguenos en Facebook</h2>
+                <p>Mantente conectado con nuestra comunidad</p>
+            </div>
+            
+            <div class="facebook-grid">
+                <!-- Facebook Page Plugin -->
+                <div class="facebook-widget">
+                    <h3>Nuestra Página</h3>
+                    <div class="fb-page" 
+                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                         data-tabs="timeline" 
+                         data-width="350" 
+                         data-height="500" 
+                         data-small-header="false" 
+                         data-adapt-container-width="true" 
+                         data-hide-cover="false" 
+                         data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/casadeavivamientoyreinocerete" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/casadeavivamientoyreinocerete">Casa de Avivamiento y Reino cerete</a>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <!-- Facebook Activities -->
+                <div class="facebook-activities">
+                    <h3>Actividades de Facebook</h3>
+                    <div class="activity-grid">
+                        <a href="facebook/facebook-feed.html" class="activity-card">
+                            <i class="fas fa-newspaper"></i>
+                            <h4>Publicaciones</h4>
+                            <p>Ve todas nuestras publicaciones y actualizaciones</p>
+                        </a>
+                        
+                        <a href="facebook/facebook-events.html" class="activity-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Eventos</h4>
+                            <p>Descubre próximos eventos y actividades</p>
+                        </a>
+                        
+                        <a href="facebook/facebook-photos.html" class="activity-card">
+                            <i class="fas fa-images"></i>
+                            <h4>Fotos</h4>
+                            <p>Galería de fotos de nuestras actividades</p>
+                        </a>
+                        
+                        <a href="facebook/facebook-videos.html" class="activity-card">
+                            <i class="fas fa-video"></i>
+                            <h4>Videos</h4>
+                            <p>Videos de servicios y testimonios</p>
+                        </a>
+                        
+                        <a href="facebook/facebook-live.html" class="activity-card">
+                            <i class="fas fa-broadcast-tower"></i>
+                            <h4>Transmisiones en Vivo</h4>
+                            <p>Únete a nuestros servicios en vivo</p>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete/reviews" target="_blank" class="activity-card">
+                            <i class="fas fa-star"></i>
+                            <h4>Reseñas</h4>
+                            <p>Lee y deja tu testimonio</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facebook Comments Plugin -->
+            <div class="facebook-comments">
+                <h3>Comentarios de la Comunidad</h3>
+                <div class="fb-comments" 
+                     data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                     data-width="100%" 
+                     data-numposts="5">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contacto" class="contact">
         <div class="container">
@@ -225,6 +337,9 @@
                         <div class="contact-details">
                             <h3>Dirección</h3>
                             <p>Cerete, Córdoba, Colombia</p>
+                            <a href="https://maps.app.goo.gl/Sqohyuc9YkAKCstG6" target="_blank" class="map-link">
+                                <i class="fas fa-external-link-alt"></i> Ver en Google Maps
+                            </a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -242,7 +357,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>info@casadeavivamiento.com</p>
+                            <p><a href="mailto:luismarkministerio@gmail.com">luismarkministerio@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -251,9 +366,24 @@
                         </div>
                         <div class="contact-details">
                             <h3>Horarios de Servicio</h3>
-                            <p>Domingos: 10:00 AM<br>
-                               Miércoles: 7:00 PM<br>
-                               Sábados: 6:00 PM</p>
+                            <div class="schedule-simple">
+                                <div class="schedule-row">
+                                    <span class="day">Martes</span>
+                                    <span class="time">7:00 PM</span>
+                                </div>
+                                <div class="schedule-row">
+                                    <span class="day">Jueves</span>
+                                    <span class="time">7:00 PM</span>
+                                </div>
+                                <div class="schedule-row">
+                                    <span class="day">Sábado</span>
+                                    <span class="time">7:00 PM</span>
+                                </div>
+                                <div class="schedule-row">
+                                    <span class="day">Domingo</span>
+                                    <span class="time">8:00 AM</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -294,11 +424,44 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Casa de Avivamiento y Reino Cerete. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Casa de Avivamiento y Reino Cerete. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+    
+    <script>
+        // Facebook SDK initialization
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '', // Add your Facebook App ID here
+                cookie: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+            
+            FB.AppEvents.logPageView();
+        };
+        
+        // Facebook share function
+        function shareOnFacebook(url, title) {
+            FB.ui({
+                method: 'share',
+                href: url || window.location.href,
+                quote: title || 'Casa de Avivamiento y Reino Cerete - Un lugar donde experimentarás el amor de Dios'
+            }, function(response) {
+                if (response && !response.error_message) {
+                    console.log('Compartido exitosamente');
+                } else {
+                    console.log('Error al compartir');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

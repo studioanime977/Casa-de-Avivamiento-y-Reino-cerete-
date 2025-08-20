@@ -486,60 +486,766 @@ body {
     min-height: 120px;
 }
 
-/* Footer */
-.footer {
-    background: #1f2937;
-    color: white;
-    padding: 3rem 0 1rem;
+.map-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #6c5ce7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.footer-content {
+.map-link:hover {
+    color: #5a4fcf;
+    text-decoration: underline;
+}
+
+.map-link i {
+    margin-right: 5px;
+}
+
+.contact-details a {
+    color: #6c5ce7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #5a4fcf;
+    text-decoration: underline;
+}
+
+/* Schedule Styles */
+.schedule-simple {
+    margin-top: 10px;
+}
+
+.schedule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    padding: 6px 0;
+}
+
+.schedule-row:last-child {
+    margin-bottom: 0;
+}
+
+.schedule-row .day {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.schedule-row .time {
+    font-weight: 500;
+    color: #6c5ce7;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .schedule-row {
+        padding: 8px 0;
+    }
+    
+    .schedule-row .day,
+    .schedule-row .time {
+        font-size: 13px;
+    }
+}
+
+/* Facebook Integration Styles */
+.facebook-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.facebook-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.facebook-widget h3,
+.facebook-activities h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.activity-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    text-decoration: none;
+    color: inherit;
+}
+
+.activity-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.activity-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+.activity-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.facebook-comments {
+    margin-top: 3rem;
+}
+
+.facebook-comments h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
+/* Page Header Styles */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+    color: white;
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Facebook Feed Styles */
+.facebook-feed-section,
+.facebook-events-section,
+.facebook-photos-section,
+.facebook-videos-section,
+.facebook-live-section {
+    padding: 3rem 0;
+}
+
+.feed-header,
+.events-header,
+.photos-header,
+.videos-header,
+.live-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.footer-logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-.footer-logo i {
-    margin-right: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.footer-social {
+.social-buttons {
     display: flex;
     gap: 1rem;
 }
 
-.social-link {
-    width: 45px;
-    height: 45px;
-    background: #374151;
-    border-radius: 50%;
+.facebook-timeline,
+.facebook-events,
+.facebook-photos-embed,
+.facebook-videos-embed,
+.facebook-live-embed {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.embedded-posts,
+.photo-albums,
+.featured-videos {
+    margin: 3rem 0;
+}
+
+.posts-grid,
+.albums-grid,
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.post-placeholder,
+.video-placeholder {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Album Styles */
+.album-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+}
+
+.album-cover {
+    height: 150px;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    font-size: 3rem;
 }
 
-.social-link:hover {
-    background: #2563eb;
-    transform: translateY(-2px);
+.album-info {
+    padding: 1.5rem;
+}
+
+.album-info h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+.album-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.album-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.album-link:hover {
+    text-decoration: underline;
+}
+
+/* Event Categories */
+.event-categories,
+.video-categories {
+    margin: 3rem 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.category-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.category-card h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+}
+
+.category-card .time {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.category-link,
+.activity-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.category-link:hover,
+.activity-link:hover {
+    text-decoration: underline;
+}
+
+/* Event Registration Steps */
+.event-registration,
+.photo-guidelines,
+.video-guidelines,
+.live-guidelines {
+    margin: 3rem 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.registration-steps,
+.guidelines-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+.guidelines-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.guideline-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.guideline-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: 0.2rem;
+}
+
+/* Live Streaming Styles */
+.live-status-section {
+    background: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.live-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.status-indicator.live i {
+    color: #ff4444;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.offline i {
+    color: #666;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.next-service {
+    text-align: center;
+}
+
+.service-info {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.service-day,
+.service-time {
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+.service-countdown {
+    background: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.live-stream-container {
+    margin: 2rem 0;
+}
+
+.stream-placeholder {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+}
+
+.no-stream i {
+    font-size: 4rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.no-stream h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+/* Schedule Styles */
+.live-schedule,
+.video-schedule {
+    margin: 3rem 0;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.schedule-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-card.special {
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: white;
+}
+
+.schedule-day {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.schedule-card.special .schedule-day {
+    color: white;
+}
+
+.schedule-details .time {
+    font-weight: bold;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.schedule-card.special .schedule-details .time {
+    color: white;
+}
+
+.btn-reminder,
+.btn-events {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reminder:hover,
+.btn-events:hover {
+    background: var(--secondary);
+    color: white;
+    text-decoration: none;
+}
+
+/* Live Features */
+.live-features {
+    margin: 3rem 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.feature-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+/* Facebook Navigation */
+.facebook-nav {
+    margin: 3rem 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.activity-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.activity-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--primary-dark);
+    transition: background-color 0.3s ease;
+}
+
+.activity-link:hover {
+    background: #f8f9fa;
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.activity-link i {
+    font-size: 1.5rem;
+}
+
+/* Responsive Design for Facebook Features */
+@media (max-width: 768px) {
+    .facebook-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .feed-header,
+    .events-header,
+    .photos-header,
+    .videos-header,
+    .live-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .live-status {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .service-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .activity-links {
+        gap: 1rem;
+    }
+    
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .categories-grid,
+    .albums-grid,
+    .videos-grid,
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .registration-steps,
+    .guidelines-steps,
+    .guidelines-content,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-logo i {
+    color: var(--accent);
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    background: var(--secondary);
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.contact-info i {
+    color: var(--accent);
+    width: 20px;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #374151;
-    color: #9ca3af;
+    border-top: 1px solid #444;
+    color: #ccc;
 }
 
 /* Responsive Design */

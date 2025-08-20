@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transmisiones en Vivo - Casa de Avivamiento y Reino Cerete</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Facebook SDK -->
+    <meta property="og:url" content="https://www.facebook.com/casadeavivamientoyreinocerete">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="En Vivo - Casa de Avivamiento y Reino Cerete">
+    <meta property="og:description" content="Únete a nuestros servicios y eventos en vivo desde cualquier lugar">
+    <meta property="og:image" content="https://scontent.fclo9-1.fna.fbcdn.net/v/t39.30808-1/308508679_403324795297459_2966777305134579591_n.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-church"></i>
+                <span>Casa de Avivamiento y Reino</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#nosotros" class="nav-link">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#servicios" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#eventos" class="nav-link">Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#facebook" class="nav-link">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facebook-feed.html" class="nav-link">Publicaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-broadcast-tower"></i> Transmisiones en Vivo</h1>
+                <p>Únete a nuestros servicios desde cualquier lugar del mundo</p>
+                <div class="breadcrumb">
+                    <a href="../index.html">Inicio</a> / <a href="../index.html#facebook">Facebook</a> / <span>Transmisiones en Vivo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Status Section -->
+    <section class="live-status-section">
+        <div class="container">
+            <div class="live-status">
+                <div class="status-indicator" id="liveIndicator">
+                    <i class="fas fa-circle"></i>
+                    <span id="statusText">Verificando estado...</span>
+                </div>
+                <div class="next-service">
+                    <h3>Próximo Servicio</h3>
+                    <div class="service-info">
+                        <div class="service-day">Domingo</div>
+                        <div class="service-time">10:00 AM</div>
+                        <div class="service-countdown" id="countdown"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facebook Live Section -->
+    <section class="facebook-live-section">
+        <div class="container">
+            <div class="live-header">
+                <h2>Transmisión en Vivo</h2>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/casadeavivamientoyreinocerete/live" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-facebook-f"></i> Ver en Facebook
+                    </a>
+                    <button onclick="shareOnFacebook()" class="btn btn-secondary">
+                        <i class="fas fa-share"></i> Compartir
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Live Stream Embed -->
+            <div class="live-stream-container">
+                <div class="stream-placeholder" id="streamContainer">
+                    <!-- Facebook Live embed will appear here when live -->
+                    <div class="no-stream">
+                        <i class="fas fa-video-slash"></i>
+                        <h3>No hay transmisión en vivo</h3>
+                        <p>Únete a nosotros en nuestros horarios de servicio</p>
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="btn btn-primary">
+                            Visitar Página de Facebook
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Facebook Page Live Tab -->
+                <div class="facebook-live-embed">
+                    <div class="fb-page" 
+                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                         data-tabs="timeline" 
+                         data-width="800" 
+                         data-height="600" 
+                         data-small-header="false" 
+                         data-adapt-container-width="true" 
+                         data-hide-cover="false" 
+                         data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/casadeavivamientoyreinocerete" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/casadeavivamientoyreinocerete">Casa de Avivamiento y Reino cerete</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Schedule -->
+            <div class="live-schedule">
+                <h3>Horarios de Transmisión</h3>
+                <div class="schedule-grid">
+                    <div class="schedule-card">
+                        <div class="schedule-day">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Domingos</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Servicio Principal</h4>
+                            <p class="time">10:00 AM - 12:00 PM</p>
+                            <p class="description">Adoración, predicación y comunión</p>
+                        </div>
+                        <div class="schedule-actions">
+                            <button class="btn-reminder" onclick="setReminder('domingo')">
+                                <i class="fas fa-bell"></i> Recordatorio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-day">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Miércoles</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Estudio Bíblico</h4>
+                            <p class="time">7:00 PM - 8:00 PM</p>
+                            <p class="description">Enseñanza y reflexión de la Palabra</p>
+                        </div>
+                        <div class="schedule-actions">
+                            <button class="btn-reminder" onclick="setReminder('miercoles')">
+                                <i class="fas fa-bell"></i> Recordatorio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card special">
+                        <div class="schedule-day">
+                            <i class="fas fa-star"></i>
+                            <span>Eventos Especiales</span>
+                        </div>
+                        <div class="schedule-details">
+                            <h4>Conferencias y Retiros</h4>
+                            <p class="time">Fechas Variables</p>
+                            <p class="description">Eventos especiales y conferencias</p>
+                        </div>
+                        <div class="schedule-actions">
+                            <a href="facebook-events.html" class="btn-events">
+                                <i class="fas fa-calendar-alt"></i> Ver Eventos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Features -->
+            <div class="live-features">
+                <h3>Características de Nuestras Transmisiones</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-hd-video"></i>
+                        <h4>Alta Calidad</h4>
+                        <p>Transmisiones en HD para la mejor experiencia</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-comments"></i>
+                        <h4>Chat en Vivo</h4>
+                        <p>Interactúa con la comunidad durante la transmisión</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Multiplataforma</h4>
+                        <p>Ve desde cualquier dispositivo, en cualquier lugar</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <h4>Peticiones de Oración</h4>
+                        <p>Comparte tus peticiones en los comentarios</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Guidelines -->
+            <div class="live-guidelines">
+                <h3>Cómo Participar en Nuestras Transmisiones</h3>
+                <div class="guidelines-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Sigue Nuestra Página</h4>
+                            <p>Asegúrate de seguir nuestra página de Facebook para recibir notificaciones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Activa las Notificaciones</h4>
+                            <p>Habilita las notificaciones para saber cuándo iniciamos una transmisión</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Únete Puntualmente</h4>
+                            <p>Conéctate unos minutos antes del horario programado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Participa Activamente</h4>
+                            <p>Comenta, comparte y participa en la comunidad en línea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facebook Activities Navigation -->
+            <div class="facebook-nav">
+                <h3>Otras Actividades de Facebook</h3>
+                <div class="activity-links">
+                    <a href="facebook-feed.html" class="activity-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Publicaciones</span>
+                    </a>
+                    <a href="facebook-events.html" class="activity-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    <a href="facebook-photos.html" class="activity-link">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                    <a href="facebook-videos.html" class="activity-link">
+                        <i class="fas fa-video"></i>
+                        <span>Videos</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-church"></i>
+                        <span>Casa de Avivamiento y Reino</span>
+                    </div>
+                    <p>Un lugar donde experimentarás el amor de Dios y encontrarás tu propósito en Cristo.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#nosotros">Nosotros</a></li>
+                        <li><a href="../index.html#servicios">Servicios</a></li>
+                        <li><a href="../index.html#eventos">Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Facebook</h3>
+                    <ul>
+                        <li><a href="facebook-feed.html">Publicaciones</a></li>
+                        <li><a href="facebook-events.html">Eventos</a></li>
+                        <li><a href="facebook-photos.html">Fotos</a></li>
+                        <li><a href="facebook-videos.html">Videos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Cerete, Córdoba, Colombia</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@casadeavivamiento.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Casa de Avivamiento y Reino Cerete. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+    
+    <script>
+        // Facebook SDK initialization
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '', // Add your Facebook App ID here
+                cookie: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+            
+            FB.AppEvents.logPageView();
+        };
+        
+        // Facebook share function
+        function shareOnFacebook(url, title) {
+            FB.ui({
+                method: 'share',
+                href: url || window.location.href,
+                quote: title || 'Transmisiones en Vivo de Casa de Avivamiento y Reino Cerete'
+            }, function(response) {
+                if (response && !response.error_message) {
+                    console.log('Compartido exitosamente');
+                } else {
+                    console.log('Error al compartir');
+                }
+            });
+        }
+        
+        // Countdown to next service
+        function updateCountdown() {
+            const now = new Date();
+            const nextSunday = new Date();
+            nextSunday.setDate(now.getDate() + (7 - now.getDay()) % 7);
+            nextSunday.setHours(10, 0, 0, 0);
+            
+            if (now.getDay() === 0 && now.getHours() < 10) {
+                nextSunday.setDate(now.getDate());
+            }
+            
+            const timeDiff = nextSunday - now;
+            
+            if (timeDiff > 0) {
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('countdown').textContent = 
+                    `${days}d ${hours}h ${minutes}m`;
+            } else {
+                document.getElementById('countdown').textContent = 'En vivo ahora';
+            }
+        }
+        
+        // Set reminder function
+        function setReminder(day) {
+            alert(`Recordatorio configurado para ${day}. Te notificaremos cuando inicie la transmisión.`);
+        }
+        
+        // Update live status
+        function updateLiveStatus() {
+            const indicator = document.getElementById('liveIndicator');
+            const statusText = document.getElementById('statusText');
+            
+            // This would normally check if there's a live stream
+            // For now, we'll show offline status
+            indicator.classList.remove('live');
+            indicator.classList.add('offline');
+            statusText.textContent = 'Sin transmisión en vivo';
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            updateLiveStatus();
+            
+            // Update countdown every minute
+            setInterval(updateCountdown, 60000);
+            
+            // Check live status every 30 seconds
+            setInterval(updateLiveStatus, 30000);
+        });
+    </script>
+</body>
+</html>

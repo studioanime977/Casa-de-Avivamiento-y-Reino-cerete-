@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones de Facebook - Casa de Avivamiento y Reino Cerete</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Facebook SDK -->
+    <meta property="og:url" content="https://www.facebook.com/casadeavivamientoyreinocerete">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publicaciones - Casa de Avivamiento y Reino Cerete">
+    <meta property="og:description" content="Mantente al día con todas nuestras publicaciones y actualizaciones">
+    <meta property="og:image" content="https://scontent.fclo9-1.fna.fbcdn.net/v/t39.30808-1/308508679_403324795297459_2966777305134579591_n.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-church"></i>
+                <span>Casa de Avivamiento y Reino</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#nosotros" class="nav-link">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#servicios" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#eventos" class="nav-link">Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#facebook" class="nav-link">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facebook-feed.html" class="nav-link active">Publicaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-newspaper"></i> Publicaciones de Facebook</h1>
+                <p>Mantente al día con todas nuestras publicaciones y actualizaciones</p>
+                <div class="breadcrumb">
+                    <a href="../index.html">Inicio</a> / <a href="../index.html#facebook">Facebook</a> / <span>Publicaciones</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facebook Feed Section -->
+    <section class="facebook-feed-section">
+        <div class="container">
+            <div class="feed-header">
+                <h2>Últimas Publicaciones</h2>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-facebook-f"></i> Visitar Página
+                    </a>
+                    <button onclick="shareOnFacebook()" class="btn btn-secondary">
+                        <i class="fas fa-share"></i> Compartir
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Facebook Page Plugin with Posts -->
+            <div class="facebook-timeline">
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                     data-tabs="timeline" 
+                     data-width="800" 
+                     data-height="800" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="false">
+                    <blockquote cite="https://www.facebook.com/casadeavivamientoyreinocerete" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete">Casa de Avivamiento y Reino cerete</a>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Alternative Embedded Posts -->
+            <div class="embedded-posts">
+                <h3>Publicaciones Destacadas</h3>
+                <div class="posts-grid">
+                    <!-- Individual Facebook posts can be embedded here -->
+                    <div class="post-placeholder">
+                        <div class="fb-post" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete/posts" 
+                             data-width="500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facebook Activities Navigation -->
+            <div class="facebook-nav">
+                <h3>Otras Actividades de Facebook</h3>
+                <div class="activity-links">
+                    <a href="facebook-events.html" class="activity-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    <a href="facebook-photos.html" class="activity-link">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                    <a href="facebook-videos.html" class="activity-link">
+                        <i class="fas fa-video"></i>
+                        <span>Videos</span>
+                    </a>
+                    <a href="facebook-live.html" class="activity-link">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <span>En Vivo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-church"></i>
+                        <span>Casa de Avivamiento y Reino</span>
+                    </div>
+                    <p>Un lugar donde experimentarás el amor de Dios y encontrarás tu propósito en Cristo.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#nosotros">Nosotros</a></li>
+                        <li><a href="../index.html#servicios">Servicios</a></li>
+                        <li><a href="../index.html#eventos">Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Facebook</h3>
+                    <ul>
+                        <li><a href="facebook-feed.html">Publicaciones</a></li>
+                        <li><a href="facebook-events.html">Eventos</a></li>
+                        <li><a href="facebook-photos.html">Fotos</a></li>
+                        <li><a href="facebook-videos.html">Videos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Cerete, Córdoba, Colombia</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@casadeavivamiento.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Casa de Avivamiento y Reino Cerete. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+    
+    <script>
+        // Facebook SDK initialization
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '', // Add your Facebook App ID here
+                cookie: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+            
+            FB.AppEvents.logPageView();
+        };
+        
+        // Facebook share function
+        function shareOnFacebook(url, title) {
+            FB.ui({
+                method: 'share',
+                href: url || window.location.href,
+                quote: title || 'Publicaciones de Casa de Avivamiento y Reino Cerete'
+            }, function(response) {
+                if (response && !response.error_message) {
+                    console.log('Compartido exitosamente');
+                } else {
+                    console.log('Error al compartir');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
