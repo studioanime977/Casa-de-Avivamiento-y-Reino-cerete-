@@ -562,6 +562,240 @@ body {
     background: #f8f9fa;
 }
 
+/* Recent Facebook Activities */
+.facebook-recent {
+    margin-bottom: 40px;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.recent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.recent-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recent-header h3 i {
+    color: #6c5ce7;
+}
+
+.recent-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.last-refresh {
+    font-size: 12px;
+    color: #666;
+}
+
+.refresh-btn {
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn:hover {
+    background: #5a4fcf;
+    transform: rotate(180deg);
+}
+
+.recent-activities {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.facebook-activity-item {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #6c5ce7;
+    transition: transform 0.2s ease;
+}
+
+.facebook-activity-item:hover {
+    transform: translateX(5px);
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.activity-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.activity-type i {
+    color: #6c5ce7;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.activity-content p {
+    margin: 0 0 10px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.activity-media {
+    margin: 10px 0;
+}
+
+.activity-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.activity-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.activity-engagement {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.stat-item i {
+    color: #6c5ce7;
+}
+
+.view-post-btn {
+    background: #1877f2;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.view-post-btn:hover {
+    background: #166fe5;
+    color: white;
+}
+
+.loading-activities {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.loading-activities i {
+    font-size: 24px;
+    color: #6c5ce7;
+    margin-bottom: 10px;
+}
+
+.no-activities {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.fallback-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.fallback-message {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.fallback-message i {
+    font-size: 48px;
+    color: #6c5ce7;
+    margin-bottom: 15px;
+}
+
+.fallback-message h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.fallback-message p {
+    margin: 0 0 20px 0;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .recent-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .recent-controls {
+        align-self: flex-end;
+    }
+    
+    .activity-stats {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .facebook-activity-item:hover {
+        transform: none;
+    }
+}
+
 .facebook-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;

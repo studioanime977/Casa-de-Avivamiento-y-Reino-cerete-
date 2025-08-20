@@ -307,15 +307,36 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Facebook Comments Plugin -->
-            <div class="facebook-comments">
-                <h3>Comentarios de la Comunidad</h3>
-                <div class="fb-comments" 
-                     data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
-                     data-width="100%" 
-                     data-numposts="5">
+                
+                <!-- Recent Facebook Activities -->
+                <div class="facebook-recent">
+                    <div class="recent-header">
+                        <h3><i class="fas fa-clock"></i> Actividades Recientes</h3>
+                        <div class="recent-controls">
+                            <span id="last-refresh-time" class="last-refresh">Cargando...</span>
+                            <button id="refresh-activities-btn" class="refresh-btn" title="Actualizar">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="facebook-recent-activities" class="recent-activities">
+                        <!-- Activities will be loaded here by JavaScript -->
+                        <div class="loading-activities">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Cargando actividades recientes...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facebook Comments -->
+                <div class="facebook-comments">
+                    <h3>Comentarios de la Comunidad</h3>
+                    <div class="fb-comments" 
+                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                         data-width="100%" 
+                         data-numposts="5"
+                         data-order-by="reverse_time">
+                    </div>
                 </div>
             </div>
         </div>
@@ -430,6 +451,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="facebook-api.js"></script>
+    <script src="facebook-config.js"></script>
     
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
