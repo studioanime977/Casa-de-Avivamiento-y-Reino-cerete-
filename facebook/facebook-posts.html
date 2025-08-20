@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Últimas Publicaciones - Casa de Avivamiento y Reino Cerete</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Últimas Publicaciones - Casa de Avivamiento y Reino Cerete">
+    <meta property="og:description" content="Mantente al día con todas nuestras publicaciones y actualizaciones">
+    <meta property="og:image" content="https://www.facebook.com/casadeavivamientoyreinocerete">
+    <meta property="og:url" content="https://www.facebook.com/casadeavivamientoyreinocerete">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Casa de Avivamiento</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#nosotros" class="nav-link">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#servicios" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#eventos" class="nav-link">Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#facebook" class="nav-link">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facebook-posts.html" class="nav-link active">Publicaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-newspaper"></i> Últimas Publicaciones</h1>
+                <p>Mantente al día con todas nuestras publicaciones y actualizaciones</p>
+                <div class="breadcrumb">
+                    <a href="../index.html">Inicio</a> / <a href="../index.html#facebook">Facebook</a> / <span>Publicaciones</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts Feed Section -->
+    <section class="posts-feed-section">
+        <div class="container">
+            <div class="posts-header">
+                <h2>Feed de Publicaciones</h2>
+                <div class="feed-controls">
+                    <button id="refresh-posts" class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                    <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-facebook-f"></i> Ver en Facebook
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Posts Container -->
+            <div class="posts-container">
+                <!-- Posts will be loaded dynamically by the API -->
+                <div class="loading-state">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <p>Cargando publicaciones más recientes...</p>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="btn btn-outline load-more-btn">
+                        <i class="fas fa-plus"></i> Cargar más publicaciones
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Facebook Navigation -->
+            <div class="facebook-navigation">
+                <h3>Más Actividades de Facebook</h3>
+                <div class="nav-grid">
+                    <a href="facebook-events.html" class="nav-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    <a href="facebook-photos.html" class="nav-card">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                    <a href="facebook-videos.html" class="nav-card">
+                        <i class="fas fa-video"></i>
+                        <span>Videos</span>
+                    </a>
+                    <a href="facebook-live.html" class="nav-card">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <span>En Vivo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Casa de Avivamiento y Reino Cerete</h3>
+                    <p>Transformando vidas a través del poder de Dios</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#nosotros">Nosotros</a></li>
+                        <li><a href="../index.html#servicios">Servicios</a></li>
+                        <li><a href="../index.html#eventos">Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Actividades Facebook</h3>
+                    <ul>
+                        <li><a href="facebook-posts.html">Publicaciones</a></li>
+                        <li><a href="facebook-events.html">Eventos</a></li>
+                        <li><a href="facebook-photos.html">Fotos</a></li>
+                        <li><a href="facebook-videos.html">Videos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Casa de Avivamiento y Reino Cerete. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+    
+    <!-- Dynamic Facebook Posts API -->
+    <script src="api/facebook-posts-api.js"></script>
+</body>
+</html>
