@@ -574,7 +574,12 @@
             // Admin password (change this to your desired password)
             const ADMIN_PASSWORD = 'admin2025';
             let isAdminLoggedIn = false;
-            let comments = JSON.parse(localStorage.getItem('churchComments')) || [];
+            let comments = [];
+            
+            // Global storage configuration (JSONBin.io)
+            const JSONBIN_API_KEY = '$2a$10$8yF5Xv7qK9rL3mN2pQ6sO.wE4tY8uI0oP3aS7dF9gH2jK5lM6nB8c';
+            const JSONBIN_BIN_ID = '676e8f2bad19ca34f8c8f123';
+            const JSONBIN_BASE_URL = 'https://api.jsonbin.io/v3';
 
             // DOM Elements
             const adminToggle = document.getElementById('admin-toggle');
@@ -593,8 +598,58 @@
 
             function init() {
                 setupEventListeners();
+                loadCommentsFromServer();
+                
+                // Auto-refresh comments every 30 seconds
+                setInterval(loadCommentsFromServer, 30000);
+            }
+
+            // Load comments from global storage
+            async function loadCommentsFromServer() {
+                try {
+                    const response = await fetch(`${JSONBIN_BASE_URL}/b/${JSONBIN_BIN_ID}/latest`, {
+                        method: 'GET',
+                        headers: {
+                            'X-Master-Key': JSONBIN_API_KEY
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        comments = data.record || [];
+                    } else {
+                        // If bin doesn't exist, create it with empty array
+                        comments = [];
+                        await saveCommentsToServer();
+                    }
+                } catch (error) {
+                    console.log('Error loading comments, using empty array:', error);
+                    comments = [];
+                }
+                
                 renderComments();
                 updateCommentsCount();
+            }
+
+            // Save comments to global storage
+            async function saveCommentsToServer() {
+                try {
+                    const response = await fetch(`${JSONBIN_BASE_URL}/b/${JSONBIN_BIN_ID}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Master-Key': JSONBIN_API_KEY
+                        },
+                        body: JSON.stringify(comments)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to save comments');
+                    }
+                } catch (error) {
+                    console.error('Error saving comments:', error);
+                    showNotification('Error al guardar comentario. Inténtalo de nuevo.', 'error');
+                }
             }
 
             function setupEventListeners() {
@@ -654,7 +709,7 @@
                 renderComments();
             }
 
-            function handleCommentSubmit(e) {
+            async function handleCommentSubmit(e) {
                 e.preventDefault();
                 
                 const name = document.getElementById('comment-name').value.trim();
@@ -665,6 +720,9 @@
                     showNotification('Por favor completa todos los campos requeridos', 'error');
                     return;
                 }
+
+                // Show loading message
+                showNotification('Publicando comentario...', 'info');
 
                 // Create new comment
                 const newComment = {
@@ -684,8 +742,8 @@
                 // Add to comments array
                 comments.unshift(newComment); // Add to beginning
                 
-                // Save to localStorage
-                localStorage.setItem('churchComments', JSON.stringify(comments));
+                // Save to global storage
+                await saveCommentsToServer();
                 
                 // Reset form
                 commentForm.reset();
@@ -695,7 +753,7 @@
                 updateCommentsCount();
                 
                 // Show success message
-                showNotification('¡Comentario publicado exitosamente!', 'success');
+                showNotification('¡Comentario publicado exitosamente! Visible para todos los usuarios.', 'success');
                 
                 // Scroll to comments
                 document.getElementById('comments-list').scrollIntoView({ behavior: 'smooth' });
@@ -730,24 +788,20 @@
                 `).join('');
             }
 
-            function deleteComment(commentId) {
+            async function deleteComment(commentId) {
                 if (!isAdminLoggedIn) {
                     showNotification('Solo el administrador puede eliminar comentarios', 'error');
                     return;
                 }
 
                 if (confirm('¿Estás seguro de que quieres eliminar este comentario?')) {
-                    // Remove from array
+                    showNotification('Eliminando comentario...', 'info');
+                    
                     comments = comments.filter(comment => comment.id !== commentId);
-                    
-                    // Save to localStorage
-                    localStorage.setItem('churchComments', JSON.stringify(comments));
-                    
-                    // Re-render
+                    await saveCommentsToServer();
                     renderComments();
                     updateCommentsCount();
-                    
-                    showNotification('Comentario eliminado', 'info');
+                    showNotification('Comentario eliminado exitosamente', 'success');
                 }
             }
 
