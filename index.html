@@ -21,7 +21,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-church"></i>
+                <img src="img/logo/logo.PNG" alt="Casa de Avivamiento y Reino" class="logo-img">
                 <span>Casa de Avivamiento y Reino</span>
             </div>
             <ul class="nav-menu">
@@ -68,7 +68,7 @@
         </div>
         <div class="hero-image">
             <div class="hero-placeholder">
-                <i class="fas fa-cross"></i>
+                <img src="img/logo/logo.PNG" alt="Casa de Avivamiento y Reino" class="hero-logo">
             </div>
         </div>
     </section>
@@ -242,18 +242,18 @@
         <div class="container">
             <div class="section-header">
                 <h2>Síguenos en Facebook</h2>
-                <p>Mantente conectado con nuestra comunidad</p>
+                <p>Mantente conectado con nuestra comunidad - Todo el contenido aquí mismo</p>
             </div>
             
             <div class="facebook-grid">
-                <!-- Facebook Page Plugin -->
+                <!-- Facebook Page Plugin with Timeline -->
                 <div class="facebook-widget">
-                    <h3>Nuestra Página</h3>
+                    <h3>Nuestra Página y Publicaciones Recientes</h3>
                     <div class="fb-page" 
                          data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
-                         data-tabs="timeline" 
-                         data-width="350" 
-                         data-height="500" 
+                         data-tabs="timeline,events,messages" 
+                         data-width="500" 
+                         data-height="600" 
                          data-small-header="false" 
                          data-adapt-container-width="true" 
                          data-hide-cover="false" 
@@ -264,51 +264,129 @@
                     </div>
                 </div>
                 
-                <!-- Facebook Activities -->
-                <div class="facebook-activities">
-                    <h3>Actividades de Facebook</h3>
-                    <div class="activity-grid">
-
-                        <a href="facebook/facebook-events.html" class="activity-card">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>Eventos</h4>
-                            <p>Descubre próximos eventos y actividades</p>
-                        </a>
+                <!-- Embedded Facebook Posts -->
+                <div class="facebook-posts">
+                    <h3>Últimas Publicaciones</h3>
+                    <div class="posts-container">
+                        <!-- Facebook embedded post plugin will show recent posts -->
+                        <div class="fb-social-plugin" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                             data-width="500">
+                        </div>
                         
-                        <a href="facebook/facebook-photos.html" class="activity-card">
-                            <i class="fas fa-images"></i>
-                            <h4>Fotos</h4>
-                            <p>Galería de fotos de nuestras actividades</p>
-                        </a>
-                        
-                        <a href="facebook/facebook-videos.html" class="activity-card">
-                            <i class="fas fa-video"></i>
-                            <h4>Videos</h4>
-                            <p>Videos de servicios y testimonios</p>
-                        </a>
-                        
-                        <a href="facebook/facebook-live.html" class="activity-card">
-                            <i class="fas fa-broadcast-tower"></i>
-                            <h4>Transmisiones en Vivo</h4>
-                            <p>Únete a nuestros servicios en vivo</p>
-                        </a>
-                        
-                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete/reviews" target="_blank" class="activity-card">
-                            <i class="fas fa-star"></i>
-                            <h4>Reseñas</h4>
-                            <p>Lee y deja tu testimonio</p>
-                        </a>
+                        <!-- Alternative: Show recent posts via page plugin -->
+                        <div class="recent-posts-info">
+                            <div class="post-placeholder">
+                                <i class="fab fa-facebook-f"></i>
+                                <p>Las publicaciones más recientes de nuestra página aparecerán aquí automáticamente</p>
+                                <small>Incluyendo fotos, videos, eventos y transmisiones en vivo</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Facebook Comments -->
-                <div class="facebook-comments">
+                <!-- Facebook Live Videos -->
+                <div class="facebook-live">
+                    <h3>Videos y Transmisiones</h3>
+                    <div class="fb-video" 
+                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete/videos" 
+                         data-width="500" 
+                         data-show-text="true">
+                    </div>
+                    <div class="live-info">
+                        <div class="live-placeholder">
+                            <i class="fas fa-video"></i>
+                            <p>Videos recientes y transmisiones en vivo</p>
+                            <small>Servicios, testimonios y eventos especiales</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Facebook Events -->
+                <div class="facebook-events">
+                    <h3>Próximos Eventos</h3>
+                    <div class="events-container">
+                        <div class="event-placeholder">
+                            <i class="fas fa-calendar-alt"></i>
+                            <p>Eventos próximos de nuestra comunidad</p>
+                            <div class="service-schedule">
+                                <h4>Horarios de Servicios:</h4>
+                                <ul>
+                                    <li><strong>Martes 7:00 PM</strong> - Discipulado del Reino</li>
+                                    <li><strong>Jueves 7:00 PM</strong> - Servicio</li>
+                                    <li><strong>Sábado 7:00 PM</strong> - Reunión de Jóvenes</li>
+                                    <li><strong>Domingo 8:00 AM</strong> - Servicio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Comments System -->
+                <div class="custom-comments">
                     <h3>Comentarios de la Comunidad</h3>
-                    <div class="fb-comments" 
-                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
-                         data-width="100%" 
-                         data-numposts="5"
-                         data-order-by="reverse_time">
+                    
+                    <!-- Admin Login Section -->
+                    <div id="admin-section" class="admin-section">
+                        <button id="admin-toggle" class="admin-toggle">🔐 Acceso Administrador</button>
+                        <div id="admin-login" class="admin-login hidden">
+                            <input type="password" id="admin-password" placeholder="Contraseña de administrador" class="admin-input">
+                            <button id="admin-login-btn" class="admin-btn">Entrar</button>
+                            <button id="admin-logout-btn" class="admin-btn hidden">Cerrar Sesión</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Comment Form -->
+                    <div class="comment-form">
+                        <h4>Deja tu comentario</h4>
+                        <form id="comment-form">
+                            <div class="form-group">
+                                <input type="text" id="comment-name" placeholder="Tu nombre" required class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="comment-email" placeholder="Tu email (opcional)" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="comment-text" placeholder="Escribe tu comentario aquí..." required class="form-textarea"></textarea>
+                            </div>
+                            <button type="submit" class="comment-submit-btn">
+                                <i class="fas fa-paper-plane"></i> Publicar Comentario
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Comments Display -->
+                    <div class="comments-display">
+                        <h4 id="comments-count">Comentarios (0)</h4>
+                        <div id="comments-list" class="comments-list">
+                            <!-- Comments will be dynamically added here -->
+                        </div>
+                        <div id="no-comments" class="no-comments">
+                            <i class="fas fa-comments"></i>
+                            <p>¡Sé el primero en comentar!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Facebook Like Button -->
+                <div class="facebook-interactions">
+                    <h3>Interactúa con Nosotros</h3>
+                    <div class="interaction-buttons">
+                        <div class="fb-like" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                             data-width="300" 
+                             data-layout="standard" 
+                             data-action="like" 
+                             data-size="large" 
+                             data-share="true">
+                        </div>
+                        
+                        <div class="fb-follow" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                             data-width="300" 
+                             data-layout="standard" 
+                             data-size="large">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -382,21 +460,37 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Tu nombre" required>
+                            <input type="text" name="from_name" placeholder="Tu nombre" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Tu email" required>
+                            <input type="email" name="from_email" placeholder="Tu email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Tu teléfono">
+                            <input type="tel" name="phone" placeholder="Tu teléfono">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
                     </form>
+                    
+                    <!-- Success/Error Messages -->
+                    <div id="form-status" class="form-status" style="display: none;">
+                        <div id="success-message" class="success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>¡Mensaje enviado exitosamente!</h4>
+                            <p>Gracias por contactarnos. Te responderemos pronto.</p>
+                        </div>
+                        <div id="error-message" class="error-message" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>Error al enviar el mensaje</h4>
+                            <p>Por favor, intenta nuevamente o contáctanos directamente.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -425,6 +519,9 @@
 
     <script src="script.js"></script>
     
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
@@ -448,14 +545,339 @@
                 method: 'share',
                 href: url || window.location.href,
                 quote: title || 'Casa de Avivamiento y Reino Cerete - Un lugar donde experimentarás el amor de Dios'
-            }, function(response) {
-                if (response && !response.error_message) {
-                    console.log('Compartido exitosamente');
-                } else {
-                    console.log('Error al compartir');
-                }
-            });
+            }, function(response){});
         }
+        
+        // Contact Form Handler with Mailto Fallback
+        (function() {
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const formStatus = document.getElementById('form-status');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('from_name');
+                    const email = formData.get('from_email');
+                    const phone = formData.get('phone') || 'No proporcionado';
+                    const message = formData.get('message');
+                    
+                    // Create email content
+                    const subject = encodeURIComponent('Nuevo mensaje de contacto - Casa de Avivamiento');
+                    const body = encodeURIComponent(
+                        `Nombre: ${name}\n` +
+                        `Email: ${email}\n` +
+                        `Teléfono: ${phone}\n\n` +
+                        `Mensaje:\n${message}\n\n` +
+                        `---\n` +
+                        `Este mensaje fue enviado desde el formulario de contacto de Casa de Avivamiento y Reino Cerete.`
+                    );
+                    
+                    // Create mailto link
+                    const mailtoLink = `mailto:studiootaku6@gmail.com?subject=${subject}&body=${body}`;
+                    
+                    // Show loading state briefly
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Abriendo email...';
+                    submitBtn.disabled = true;
+                    
+                    // Open email client
+                    setTimeout(function() {
+                        window.location.href = mailtoLink;
+                        
+                        // Show success message
+                        showSuccessMessage();
+                        contactForm.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+                        submitBtn.disabled = false;
+                    }, 1000);
+                });
+            }
+            
+            function showSuccessMessage() {
+                formStatus.style.display = 'block';
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // Update success message for mailto
+                successMessage.innerHTML = `
+                    <i class="fas fa-envelope-open"></i>
+                    <h4>¡Email preparado!</h4>
+                    <p>Se ha abierto tu cliente de email con el mensaje listo para enviar a studiootaku6@gmail.com</p>
+                `;
+                
+                // Hide after 8 seconds
+                setTimeout(function() {
+                    formStatus.style.display = 'none';
+                }, 8000);
+            }
+        })();
+
+        // Custom Comments System
+        (function() {
+            // Admin password (change this to your desired password)
+            const ADMIN_PASSWORD = 'admin2025';
+            let isAdminLoggedIn = false;
+            let comments = JSON.parse(localStorage.getItem('churchComments')) || [];
+
+            // DOM Elements
+            const adminToggle = document.getElementById('admin-toggle');
+            const adminLogin = document.getElementById('admin-login');
+            const adminPasswordInput = document.getElementById('admin-password');
+            const adminLoginBtn = document.getElementById('admin-login-btn');
+            const adminLogoutBtn = document.getElementById('admin-logout-btn');
+            const adminSection = document.getElementById('admin-section');
+            const commentForm = document.getElementById('comment-form');
+            const commentsList = document.getElementById('comments-list');
+            const commentsCount = document.getElementById('comments-count');
+            const noComments = document.getElementById('no-comments');
+
+            // Initialize
+            init();
+
+            function init() {
+                setupEventListeners();
+                renderComments();
+                updateCommentsCount();
+            }
+
+            function setupEventListeners() {
+                // Admin toggle
+                adminToggle.addEventListener('click', function() {
+                    adminLogin.classList.toggle('hidden');
+                });
+
+                // Admin login
+                adminLoginBtn.addEventListener('click', handleAdminLogin);
+                adminPasswordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleAdminLogin();
+                    }
+                });
+
+                // Admin logout
+                adminLogoutBtn.addEventListener('click', handleAdminLogout);
+
+                // Comment form
+                commentForm.addEventListener('submit', handleCommentSubmit);
+            }
+
+            function handleAdminLogin() {
+                const password = adminPasswordInput.value.trim();
+                
+                if (password === ADMIN_PASSWORD) {
+                    isAdminLoggedIn = true;
+                    adminSection.classList.add('admin-logged-in');
+                    adminLogin.classList.add('hidden');
+                    adminLogoutBtn.classList.remove('hidden');
+                    adminToggle.innerHTML = '✅ Administrador Conectado';
+                    adminToggle.style.background = '#10b981';
+                    adminPasswordInput.value = '';
+                    
+                    // Show success message
+                    showNotification('¡Bienvenido Administrador!', 'success');
+                    
+                    // Re-render comments to show delete buttons
+                    renderComments();
+                } else {
+                    showNotification('Contraseña incorrecta', 'error');
+                    adminPasswordInput.value = '';
+                }
+            }
+
+            function handleAdminLogout() {
+                isAdminLoggedIn = false;
+                adminSection.classList.remove('admin-logged-in');
+                adminLogoutBtn.classList.add('hidden');
+                adminToggle.innerHTML = '🔐 Acceso Administrador';
+                adminToggle.style.background = '#1877f2';
+                
+                showNotification('Sesión de administrador cerrada', 'info');
+                
+                // Re-render comments to hide delete buttons
+                renderComments();
+            }
+
+            function handleCommentSubmit(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('comment-name').value.trim();
+                const email = document.getElementById('comment-email').value.trim();
+                const text = document.getElementById('comment-text').value.trim();
+                
+                if (!name || !text) {
+                    showNotification('Por favor completa todos los campos requeridos', 'error');
+                    return;
+                }
+
+                // Create new comment
+                const newComment = {
+                    id: Date.now().toString(),
+                    name: name,
+                    email: email,
+                    text: text,
+                    date: new Date().toLocaleString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })
+                };
+
+                // Add to comments array
+                comments.unshift(newComment); // Add to beginning
+                
+                // Save to localStorage
+                localStorage.setItem('churchComments', JSON.stringify(comments));
+                
+                // Reset form
+                commentForm.reset();
+                
+                // Re-render comments
+                renderComments();
+                updateCommentsCount();
+                
+                // Show success message
+                showNotification('¡Comentario publicado exitosamente!', 'success');
+                
+                // Scroll to comments
+                document.getElementById('comments-list').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function renderComments() {
+                if (comments.length === 0) {
+                    commentsList.innerHTML = '';
+                    noComments.style.display = 'block';
+                    return;
+                }
+
+                noComments.style.display = 'none';
+                
+                commentsList.innerHTML = comments.map(comment => `
+                    <div class="comment-item" data-comment-id="${comment.id}">
+                        <div class="comment-header">
+                            <div>
+                                <div class="comment-author">${escapeHtml(comment.name)}</div>
+                                <div class="comment-date">${comment.date}</div>
+                            </div>
+                            ${isAdminLoggedIn ? `
+                                <div class="comment-actions">
+                                    <button class="delete-comment-btn" onclick="deleteComment('${comment.id}')">
+                                        <i class="fas fa-trash"></i> Eliminar
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="comment-content">${escapeHtml(comment.text)}</div>
+                    </div>
+                `).join('');
+            }
+
+            function deleteComment(commentId) {
+                if (!isAdminLoggedIn) {
+                    showNotification('Solo el administrador puede eliminar comentarios', 'error');
+                    return;
+                }
+
+                if (confirm('¿Estás seguro de que quieres eliminar este comentario?')) {
+                    // Remove from array
+                    comments = comments.filter(comment => comment.id !== commentId);
+                    
+                    // Save to localStorage
+                    localStorage.setItem('churchComments', JSON.stringify(comments));
+                    
+                    // Re-render
+                    renderComments();
+                    updateCommentsCount();
+                    
+                    showNotification('Comentario eliminado', 'info');
+                }
+            }
+
+            function updateCommentsCount() {
+                const count = comments.length;
+                commentsCount.textContent = `Comentarios (${count})`;
+            }
+
+            function showNotification(message, type = 'info') {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas ${getNotificationIcon(type)}"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                
+                // Add styles
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: ${getNotificationColor(type)};
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 8px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    max-width: 300px;
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 4 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 300);
+                }, 4000);
+            }
+
+            function getNotificationIcon(type) {
+                switch(type) {
+                    case 'success': return 'fa-check-circle';
+                    case 'error': return 'fa-exclamation-circle';
+                    case 'info': return 'fa-info-circle';
+                    default: return 'fa-info-circle';
+                }
+            }
+
+            function getNotificationColor(type) {
+                switch(type) {
+                    case 'success': return '#10b981';
+                    case 'error': return '#ef4444';
+                    case 'info': return '#3b82f6';
+                    default: return '#6b7280';
+                }
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // Make deleteComment available globally
+            window.deleteComment = deleteComment;
+        })();
     </script>
 </body>
 </html>

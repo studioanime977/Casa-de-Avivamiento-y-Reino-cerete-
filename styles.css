@@ -52,6 +52,14 @@ body {
     font-size: 1.8rem;
 }
 
+.logo-img {
+    height: 40px;
+    width: auto;
+    margin-right: 0.75rem;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -188,6 +196,21 @@ body {
     justify-content: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-logo {
+    max-width: 250px;
+    max-height: 250px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
 }
 
 .hero-placeholder i {
@@ -1832,4 +1855,522 @@ html {
 .service-card,
 .event-card {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* Facebook Section Styles */
+.facebook-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Custom Comments System Styles */
+.custom-comments {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    grid-column: 1 / -1; /* Full width */
+}
+
+.custom-comments:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.custom-comments h3 {
+    color: #1877f2;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-comments h3::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: #1877f2;
+    border-radius: 2px;
+}
+
+/* Admin Section */
+.admin-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.admin-toggle {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.admin-toggle:hover {
+    background: #1565c0;
+    transform: translateY(-2px);
+}
+
+.admin-login {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.admin-input {
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: #1877f2;
+}
+
+.admin-btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.admin-btn:first-of-type {
+    background: #10b981;
+    color: white;
+}
+
+.admin-btn:first-of-type:hover {
+    background: #059669;
+}
+
+.admin-btn:last-of-type {
+    background: #ef4444;
+    color: white;
+}
+
+.admin-btn:last-of-type:hover {
+    background: #dc2626;
+}
+
+/* Comment Form */
+.comment-form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.comment-form h4 {
+    color: #374151;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #1877f2;
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.comment-submit-btn {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.comment-submit-btn:hover {
+    background: #1565c0;
+    transform: translateY(-2px);
+}
+
+/* Comments Display */
+.comments-display h4 {
+    color: #374151;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.comment-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #1877f2;
+    font-size: 1rem;
+}
+
+.comment-date {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.comment-content {
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.delete-comment-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.delete-comment-btn:hover {
+    background: #dc2626;
+}
+
+.no-comments {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+}
+
+.no-comments i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #d1d5db;
+}
+
+.no-comments p {
+    font-size: 1.1rem;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.admin-logged-in {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+}
+
+/* Responsive Design for Comments */
+@media (max-width: 768px) {
+    .custom-comments {
+        padding: 1.5rem;
+    }
+    
+    .comment-form {
+        padding: 1rem;
+    }
+    
+    .admin-login {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .admin-input {
+        min-width: auto;
+    }
+    
+    .comment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .comment-actions {
+        justify-content: flex-start;
+    }
+}
+
+.facebook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.facebook-widget,
+.facebook-posts,
+.facebook-live,
+.facebook-events,
+.facebook-comments,
+.facebook-interactions {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facebook-widget:hover,
+.facebook-posts:hover,
+.facebook-live:hover,
+.facebook-events:hover,
+.facebook-comments:hover,
+.facebook-interactions:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.facebook-widget h3,
+.facebook-posts h3,
+.facebook-live h3,
+.facebook-events h3,
+.facebook-comments h3,
+.facebook-interactions h3 {
+    color: #1877f2;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.facebook-widget h3::before,
+.facebook-posts h3::before,
+.facebook-live h3::before,
+.facebook-events h3::before,
+.facebook-comments h3::before,
+.facebook-interactions h3::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: #1877f2;
+    border-radius: 2px;
+}
+
+/* Facebook Plugin Containers */
+.fb-page,
+.fb-comments,
+.fb-like,
+.fb-follow,
+.fb-video {
+    width: 100% !important;
+}
+
+/* Post Placeholders */
+.post-placeholder,
+.live-placeholder,
+.event-placeholder {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.post-placeholder i,
+.live-placeholder i,
+.event-placeholder i {
+    font-size: 3rem;
+    color: #1877f2;
+    margin-bottom: 1rem;
+}
+
+.post-placeholder p,
+.live-placeholder p,
+.event-placeholder p {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 0.5rem;
+}
+
+.post-placeholder small,
+.live-placeholder small {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Service Schedule */
+.service-schedule {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.service-schedule h4 {
+    color: #1877f2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.service-schedule ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-schedule li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-schedule li:last-child {
+    border-bottom: none;
+}
+
+.service-schedule li::before {
+    content: '📅';
+    font-size: 1.2rem;
+}
+
+.service-schedule strong {
+    color: #1877f2;
+    min-width: 140px;
+}
+
+/* Interaction Buttons */
+.interaction-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.interaction-buttons .fb-like,
+.interaction-buttons .fb-follow {
+    margin: 0.5rem 0;
+}
+
+/* Responsive Design for Facebook Section */
+@media (max-width: 768px) {
+    .facebook-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .facebook-widget,
+    .facebook-posts,
+    .facebook-live,
+    .facebook-events,
+    .facebook-comments,
+    .facebook-interactions {
+        padding: 1.5rem;
+    }
+    
+    .fb-page,
+    .fb-video {
+        max-width: 100%;
+    }
+    
+    .service-schedule li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .service-schedule strong {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .facebook-section {
+        padding: 60px 0;
+    }
+    
+    .facebook-widget,
+    .facebook-posts,
+    .facebook-live,
+    .facebook-events,
+    .facebook-comments,
+    .facebook-interactions {
+        padding: 1rem;
+    }
+    
+    .post-placeholder,
+    .live-placeholder,
+    .event-placeholder {
+        padding: 1.5rem;
+    }
+    
+    .post-placeholder i,
+    .live-placeholder i,
+    .event-placeholder i {
+        font-size: 2rem;
+    }
 }
