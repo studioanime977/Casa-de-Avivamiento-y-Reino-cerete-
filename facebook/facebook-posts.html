@@ -82,19 +82,55 @@
             
             <!-- Posts Container -->
             <div class="posts-container">
-                <!-- Posts will be loaded dynamically by the API -->
-                <div class="loading-state">
-                    <div class="loading-spinner">
-                        <i class="fas fa-spinner fa-spin"></i>
+                <!-- Facebook Page Plugin with Posts -->
+                <div class="facebook-page-widget">
+                    <div class="fb-page" 
+                         data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                         data-tabs="timeline" 
+                         data-width="680" 
+                         data-height="800" 
+                         data-small-header="false" 
+                         data-adapt-container-width="true" 
+                         data-hide-cover="false" 
+                         data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/casadeavivamientoyreinocerete" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/casadeavivamientoyreinocerete">Casa de Avivamiento y Reino Cerete</a>
+                        </blockquote>
                     </div>
-                    <p>Cargando publicaciones más recientes...</p>
                 </div>
                 
-                <!-- Load More Button -->
-                <div class="load-more-container">
-                    <button class="btn btn-outline load-more-btn">
-                        <i class="fas fa-plus"></i> Cargar más publicaciones
-                    </button>
+                <!-- Embedded Posts Section -->
+                <div class="embedded-posts-section">
+                    <h3><i class="fas fa-newspaper"></i> Publicaciones Destacadas</h3>
+                    
+                    <!-- Recent Post 1 -->
+                    <div class="embedded-post">
+                        <div class="fb-post" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete/posts" 
+                             data-width="680" 
+                             data-show-text="true">
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Post 2 -->
+                    <div class="embedded-post">
+                        <div class="fb-post" 
+                             data-href="https://www.facebook.com/casadeavivamientoyreinocerete" 
+                             data-width="680" 
+                             data-show-text="true">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Direct Link to Facebook -->
+                <div class="facebook-link-section">
+                    <div class="facebook-cta">
+                        <h3>¡Síguenos en Facebook!</h3>
+                        <p>Ve todas nuestras publicaciones más recientes, videos y actualizaciones</p>
+                        <a href="https://www.facebook.com/casadeavivamientoyreinocerete" target="_blank" class="btn btn-primary btn-large">
+                            <i class="fab fa-facebook-f"></i> Ver Todas las Publicaciones
+                        </a>
+                    </div>
                 </div>
             </div>
             
@@ -172,7 +208,6 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
     
-    <!-- Dynamic Facebook Posts API -->
-    <script src="api/facebook-posts-api.js"></script>
+
 </body>
 </html>
