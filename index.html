@@ -942,7 +942,9 @@
                     <div class="service-alert-overlay"></div>
                     <div class="service-alert-content">
                         <div class="service-alert-header" style="background: ${service.color}">
-                            <div class="service-alert-icon">${service.icon}</div>
+                            <div class="service-alert-icon">
+                                <img src="img/logo/logo.PNG" alt="Casa de Avivamiento y Reino" class="service-alert-logo">
+                            </div>
                             <h3>¡Hoy tenemos servicio!</h3>
                             <button class="service-alert-close">&times;</button>
                         </div>
@@ -1006,17 +1008,17 @@
                     .service-alert-content {
                         position: relative;
                         background: white;
-                        border-radius: 20px;
-                        max-width: 500px;
+                        border-radius: 16px;
+                        max-width: 420px;
                         width: 90%;
-                        max-height: 90vh;
+                        max-height: 85vh;
                         overflow: hidden;
-                        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
                         animation: serviceAlertSlideIn 0.4s ease-out;
                     }
 
                     .service-alert-header {
-                        padding: 2rem;
+                        padding: 1.5rem 1.5rem 1rem;
                         color: white;
                         text-align: center;
                         position: relative;
@@ -1025,11 +1027,23 @@
                     .service-alert-icon {
                         font-size: 3rem;
                         margin-bottom: 0.5rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .service-alert-logo {
+                        width: 50px;
+                        height: 50px;
+                        object-fit: contain;
+                        border-radius: 6px;
+                        background: rgba(255, 255, 255, 0.1);
+                        padding: 4px;
                     }
 
                     .service-alert-header h3 {
                         margin: 0;
-                        font-size: 1.5rem;
+                        font-size: 1.3rem;
                         font-weight: 600;
                     }
 
@@ -1053,15 +1067,15 @@
                     }
 
                     .service-alert-body {
-                        padding: 2rem;
+                        padding: 1.5rem;
                     }
 
                     .service-alert-date {
                         display: flex;
                         align-items: center;
-                        gap: 0.75rem;
-                        margin-bottom: 1.5rem;
-                        font-size: 1.1rem;
+                        gap: 0.5rem;
+                        margin-bottom: 1rem;
+                        font-size: 1rem;
                         color: #374151;
                         font-weight: 600;
                     }
@@ -1072,8 +1086,8 @@
                     }
 
                     .service-alert-service h4 {
-                        margin: 0 0 0.75rem 0;
-                        font-size: 1.3rem;
+                        margin: 0 0 0.5rem 0;
+                        font-size: 1.2rem;
                         color: #1f2937;
                     }
 
@@ -1081,7 +1095,7 @@
                         display: flex;
                         align-items: center;
                         gap: 0.5rem;
-                        margin-bottom: 1rem;
+                        margin-bottom: 0.75rem;
                         color: #6b7280;
                     }
 
@@ -1089,7 +1103,7 @@
                         display: flex;
                         align-items: center;
                         gap: 0.5rem;
-                        margin-bottom: 1.5rem;
+                        margin-bottom: 1rem;
                         color: #6b7280;
                     }
 
@@ -1099,9 +1113,9 @@
 
                     .service-alert-message {
                         background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-                        padding: 1rem;
-                        border-radius: 12px;
-                        border-left: 4px solid #3b82f6;
+                        padding: 0.75rem;
+                        border-radius: 8px;
+                        border-left: 3px solid #3b82f6;
                     }
 
                     .service-alert-message p {
@@ -1111,25 +1125,26 @@
                     }
 
                     .service-alert-actions {
-                        padding: 1.5rem 2rem 2rem;
+                        padding: 1rem 1.5rem 1.5rem;
                         display: flex;
-                        gap: 1rem;
+                        gap: 0.75rem;
                         flex-wrap: wrap;
                     }
 
                     .service-alert-btn {
                         flex: 1;
-                        padding: 0.875rem 1.5rem;
+                        padding: 0.75rem 1rem;
                         border: none;
-                        border-radius: 10px;
+                        border-radius: 8px;
                         font-weight: 600;
                         cursor: pointer;
                         transition: all 0.3s ease;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        gap: 0.5rem;
-                        min-width: 140px;
+                        gap: 0.4rem;
+                        min-width: 120px;
+                        font-size: 0.9rem;
                     }
 
                     .service-alert-btn-primary {
@@ -1172,21 +1187,73 @@
                     @media (max-width: 480px) {
                         .service-alert-content {
                             width: 95%;
-                            margin: 1rem;
+                            max-width: 350px;
+                            margin: 0.5rem;
+                            max-height: 80vh;
                         }
 
-                        .service-alert-header,
+                        .service-alert-header {
+                            padding: 1rem 1rem 0.75rem;
+                        }
+
+                        .service-alert-header h3 {
+                            font-size: 1.1rem;
+                            margin: 0.25rem 0 0;
+                        }
+
+                        .service-alert-logo {
+                            width: 40px;
+                            height: 40px;
+                            padding: 3px;
+                        }
+
                         .service-alert-body {
-                            padding: 1.5rem;
+                            padding: 1rem;
+                        }
+
+                        .service-alert-date {
+                            font-size: 0.9rem;
+                            margin-bottom: 0.75rem;
+                        }
+
+                        .service-alert-service h4 {
+                            font-size: 1.1rem;
+                            margin-bottom: 0.4rem;
+                        }
+
+                        .service-alert-time,
+                        .service-alert-location {
+                            font-size: 0.85rem;
+                            margin-bottom: 0.6rem;
+                        }
+
+                        .service-alert-message {
+                            padding: 0.6rem;
+                            margin-bottom: 0;
+                        }
+
+                        .service-alert-message p {
+                            font-size: 0.85rem;
+                            line-height: 1.3;
                         }
 
                         .service-alert-actions {
-                            padding: 1rem 1.5rem 1.5rem;
-                            flex-direction: column;
+                            padding: 0.75rem 1rem 1rem;
+                            gap: 0.5rem;
                         }
 
                         .service-alert-btn {
                             min-width: auto;
+                            padding: 0.6rem 0.8rem;
+                            font-size: 0.8rem;
+                        }
+
+                        .service-alert-close {
+                            width: 32px;
+                            height: 32px;
+                            font-size: 1.2rem;
+                            top: 0.75rem;
+                            right: 0.75rem;
                         }
                     }
                 `;
