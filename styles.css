@@ -2761,7 +2761,6 @@ html {
     align-items: center;
 }
 
-.interaction-buttons .fb-like,
 .interaction-buttons .fb-follow {
     margin: 0.5rem 0;
 }
@@ -2822,5 +2821,293 @@ html {
     .live-placeholder i,
     .event-placeholder i {
         font-size: 2rem;
+    }
+}
+
+/* Instituto Bíblico Section Styles */
+.instituto-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.instituto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.instituto-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.instituto-logo {
+    margin-bottom: 1.5rem;
+}
+
+.instituto-logo-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #3b82f6;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.instituto-info h3 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.instituto-info p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.instituto-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f1f5f9;
+    border-radius: 10px;
+    border-left: 4px solid #3b82f6;
+}
+
+.feature-item i {
+    color: #3b82f6;
+    font-size: 1.2rem;
+}
+
+.feature-item span {
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.instituto-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.instituto-facebook {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.instituto-facebook h3 {
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.instituto-programs {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / -1;
+}
+
+.instituto-programs h3 {
+    color: #1e40af;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.programs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.program-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.program-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+.program-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.program-icon i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.program-card h4 {
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.program-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.instituto-contact {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / -1;
+}
+
+.instituto-contact h3 {
+    color: #1e40af;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contact-info-instituto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-item-instituto {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+}
+
+.contact-item-instituto i {
+    color: #3b82f6;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.contact-item-instituto h4 {
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.contact-item-instituto p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item-instituto a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.contact-item-instituto a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.contact-item-instituto small {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* Mobile styles for Instituto section */
+@media (max-width: 768px) {
+    .instituto-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .instituto-logo-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .instituto-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .instituto-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .programs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-instituto {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .instituto-section {
+        padding: 60px 0;
+    }
+    
+    .instituto-info,
+    .instituto-facebook,
+    .instituto-programs,
+    .instituto-contact {
+        padding: 1.5rem;
+    }
+    
+    .instituto-logo-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .feature-item {
+        padding: 0.5rem;
+    }
+    
+    .feature-item span {
+        font-size: 0.8rem;
     }
 }
