@@ -1723,9 +1723,9 @@ body {
         padding: 0 16px;
     }
 
-    /* Navigation optimized for tall screens */
+    /* Navigation optimized for tall screens - SMALLER */
     .navbar {
-        padding: 0.75rem 0;
+        padding: 0.5rem 0;
     }
 
     .nav-container {
@@ -1733,34 +1733,34 @@ body {
     }
 
     .nav-logo {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .logo-img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
-    /* Hero section optimization */
+    /* Hero section optimization - LARGER */
     .hero {
         min-height: 100vh;
-        padding: 120px 0 60px;
+        padding: 100px 0 80px;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.5;
     }
 
-    /* Section spacing for tall screens */
+    /* Section headers - Different sizes per section */
     .section-header h2 {
-        font-size: 1.8rem;
         margin-bottom: 0.75rem;
     }
 
@@ -1768,28 +1768,78 @@ body {
         font-size: 0.95rem;
     }
 
-    /* About cards optimization */
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    /* INICIO section - LARGER */
+    #inicio .section-header h2 {
+        font-size: 2.2rem;
     }
 
-    .about-card {
-        padding: 1.5rem;
-    }
-
-    .about-card h3 {
+    #inicio .section-header p {
         font-size: 1.1rem;
     }
 
-    /* Services optimization */
+    /* NOSOTROS section - LARGER */
+    #nosotros .section-header h2 {
+        font-size: 2rem;
+    }
+
+    #nosotros .section-header p {
+        font-size: 1.05rem;
+    }
+
+    /* SERVICIOS section - SMALLER */
+    #servicios .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    #servicios .section-header p {
+        font-size: 0.9rem;
+    }
+
+    /* EVENTOS section - SMALLER */
+    #eventos .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    #eventos .section-header p {
+        font-size: 0.9rem;
+    }
+
+    /* About cards optimization - LARGER for NOSOTROS */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-card {
+        padding: 2rem;
+    }
+
+    .about-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Services optimization - SMALLER */
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .service-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .service-card h3 {
+        font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
     }
 
     /* Facebook section optimization */
@@ -1867,35 +1917,56 @@ body {
         border-radius: 2px;
     }
 
-    /* Comments section optimization */
+    /* COMENTARIOS section - LARGER */
     .custom-comments {
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
+    }
+
+    .custom-comments .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .custom-comments .section-header p {
+        font-size: 1.05rem;
     }
 
     .comment-form {
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .comment-item {
-        padding: 1.25rem;
-        margin-bottom: 1rem;
-        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
     }
 
     .comment-author {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 600;
     }
 
     .comment-date {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-top: 0.25rem;
     }
 
     .comment-content {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-top: 0.75rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-top: 1rem;
+    }
+
+    /* CONTACTO section - LARGER */
+    #contacto .section-header h2 {
+        font-size: 2rem;
+    }
+
+    #contacto .section-header p {
+        font-size: 1.05rem;
+    }
+
+    .contact {
+        padding: 4rem 0;
     }
 
     /* Facebook widgets optimization */
@@ -1904,25 +1975,38 @@ body {
         min-height: 400px !important;
     }
 
-    /* Events section optimization */
+    /* Events section optimization - SMALLER */
     .events-container {
-        padding: 1rem;
+        padding: 0.75rem;
     }
 
     .event-card {
-        padding: 1.25rem;
-        margin-bottom: 1rem;
-        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 10px;
     }
 
     .event-title {
-        font-size: 1.1rem;
-        line-height: 1.3;
+        font-size: 1rem;
+        line-height: 1.2;
     }
 
     .event-details {
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
+        font-size: 0.85rem;
+        margin-top: 0.4rem;
+    }
+
+    /* Próximos eventos - SMALLER */
+    .events .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .events .section-header p {
+        font-size: 0.85rem;
+    }
+
+    .events {
+        padding: 2rem 0;
     }
 }
 
