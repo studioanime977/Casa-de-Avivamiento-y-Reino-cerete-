@@ -621,9 +621,9 @@
                         const data = await response.json();
                         comments = data.record || [];
                     } else {
-                        // If bin doesn't exist, create it with empty array
+                        // If bin doesn't exist, create it with empty array (silently)
                         comments = [];
-                        await saveCommentsToServer();
+                        await saveCommentsToServer(false);
                     }
                 } catch (error) {
                     console.log('Error loading comments, using empty array:', error);
@@ -635,7 +635,7 @@
             }
 
             // Save comments to global storage
-            async function saveCommentsToServer() {
+            async function saveCommentsToServer(showErrorToUser = false) {
                 try {
                     const response = await fetch(`${JSONBIN_BASE_URL}/b/${JSONBIN_BIN_ID}`, {
                         method: 'PUT',
@@ -649,9 +649,13 @@
                     if (!response.ok) {
                         throw new Error('Failed to save comments');
                     }
+                    return true;
                 } catch (error) {
                     console.error('Error saving comments:', error);
-                    showNotification('Error al guardar comentario. Inténtalo de nuevo.', 'error');
+                    if (showErrorToUser) {
+                        showNotification('Error al guardar comentario. Inténtalo de nuevo.', 'error');
+                    }
+                    return false;
                 }
             }
 
@@ -746,17 +750,22 @@
                 comments.unshift(newComment); // Add to beginning
                 
                 // Save to global storage
-                await saveCommentsToServer();
+                const saveSuccess = await saveCommentsToServer(true);
                 
-                // Reset form
-                commentForm.reset();
-                
-                // Re-render comments
-                renderComments();
-                updateCommentsCount();
-                
-                // Show success message
-                showNotification('¡Comentario publicado exitosamente! Visible para todos los usuarios.', 'success');
+                if (saveSuccess) {
+                    // Reset form
+                    commentForm.reset();
+                    
+                    // Re-render comments
+                    renderComments();
+                    updateCommentsCount();
+                    
+                    // Show success message
+                    showNotification('¡Comentario publicado exitosamente! Visible para todos los usuarios.', 'success');
+                } else {
+                    // Remove the comment from local array if save failed
+                    comments.shift();
+                }
                 
                 // Scroll to comments
                 document.getElementById('comments-list').scrollIntoView({ behavior: 'smooth' });
@@ -800,11 +809,20 @@
                 if (confirm('¿Estás seguro de que quieres eliminar este comentario?')) {
                     showNotification('Eliminando comentario...', 'info');
                     
+                    const originalComments = [...comments];
                     comments = comments.filter(comment => comment.id !== commentId);
-                    await saveCommentsToServer();
-                    renderComments();
-                    updateCommentsCount();
-                    showNotification('Comentario eliminado exitosamente', 'success');
+                    
+                    const deleteSuccess = await saveCommentsToServer(true);
+                    
+                    if (deleteSuccess) {
+                        renderComments();
+                        updateCommentsCount();
+                        showNotification('Comentario eliminado exitosamente', 'success');
+                    } else {
+                        // Restore original comments if delete failed
+                        comments = originalComments;
+                        renderComments();
+                    }
                 }
             }
 
