@@ -177,61 +177,11 @@
                 <h2>Próximos Eventos</h2>
                 <p>No te pierdas nuestras actividades especiales</p>
             </div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">25</span>
-                        <span class="month">AGO</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Noche de Adoración</h3>
-                        <div class="schedule-simple">
-                            <div class="schedule-row">
-                                <span class="day">Martes</span>
-                                <span class="time">7:00 PM</span>
-                            </div>
-                            <div class="schedule-row">
-                                <span class="day">Jueves</span>
-                                <span class="time">7:00 PM</span>
-                            </div>
-                            <div class="schedule-row">
-                                <span class="day">Sábados</span>
-                                <span class="time">7:00 PM</span>
-                            </div>
-                            <div class="schedule-row">
-                                <span class="day">Domingos</span>
-                                <span class="time">8:00 AM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">01</span>
-                        <span class="month">SEP</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Conferencia Familiar</h3>
-                        <p>Fortaleciendo los lazos familiares en Cristo</p>
-                        <div class="event-time">
-                            <i class="fas fa-clock"></i>
-                            <span>6:00 PM</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">15</span>
-                        <span class="month">SEP</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Retiro Juvenil</h3>
-                        <p>Fin de semana de crecimiento para jóvenes</p>
-                        <div class="event-time">
-                            <i class="fas fa-clock"></i>
-                            <span>Todo el día</span>
-                        </div>
-                    </div>
+            <div id="events-grid" class="events-grid">
+                <!-- Events will be dynamically generated here -->
+                <div class="loading-events">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando próximos servicios...</p>
                 </div>
             </div>
         </div>
@@ -877,6 +827,532 @@
 
             // Make deleteComment available globally
             window.deleteComment = deleteComment;
+        })();
+
+        // Service Alerts System
+        (function() {
+            // Service schedule
+            const serviceSchedule = {
+                2: { // Tuesday
+                    time: '7:00 PM',
+                    service: 'Discipulado del Reino',
+                    icon: '📖',
+                    color: '#8b5cf6'
+                },
+                4: { // Thursday
+                    time: '7:00 PM',
+                    service: 'Servicio',
+                    icon: '⛪',
+                    color: '#3b82f6'
+                },
+                6: { // Saturday
+                    time: '7:00 PM',
+                    service: 'Reunión de Jóvenes',
+                    icon: '👥',
+                    color: '#10b981'
+                },
+                0: { // Sunday
+                    time: '8:00 AM',
+                    service: 'Servicio',
+                    icon: '✝️',
+                    color: '#f59e0b'
+                }
+            };
+
+            // Generate all service dates for 2025
+            let serviceDates2025 = [];
+
+            // Initialize alerts system
+            init();
+
+            function init() {
+                generateServiceDates2025();
+                checkServiceDay();
+                // Check every hour for service alerts
+                setInterval(checkServiceDay, 3600000); // 1 hour = 3600000ms
+            }
+
+            function generateServiceDates2025() {
+                serviceDates2025 = [];
+                const year = 2025;
+                
+                // Generate all Tuesdays, Thursdays, Saturdays, and Sundays for 2025
+                for (let month = 0; month < 12; month++) {
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+                    
+                    for (let day = 1; day <= daysInMonth; day++) {
+                        const date = new Date(year, month, day);
+                        const dayOfWeek = date.getDay();
+                        
+                        // Check if it's a service day (Tuesday=2, Thursday=4, Saturday=6, Sunday=0)
+                        if (serviceSchedule[dayOfWeek]) {
+                            serviceDates2025.push({
+                                date: date,
+                                dayOfWeek: dayOfWeek,
+                                service: serviceSchedule[dayOfWeek],
+                                dateString: formatDateString(date),
+                                displayDate: formatDate(date)
+                            });
+                        }
+                    }
+                }
+                
+                console.log(`Generated ${serviceDates2025.length} service dates for 2025`);
+            }
+
+            function checkServiceDay() {
+                const now = new Date();
+                const todayString = formatDateString(now);
+                
+                // Find if today is a service day
+                const todayService = serviceDates2025.find(serviceDate => 
+                    serviceDate.dateString === todayString
+                );
+                
+                if (todayService) {
+                    // Check if alert was already shown today
+                    const alertKey = `serviceAlert_${todayString}`;
+                    const alertShown = localStorage.getItem(alertKey);
+                    
+                    if (!alertShown) {
+                        showServiceAlert(todayService.service, todayService.displayDate, todayService.dayOfWeek);
+                        localStorage.setItem(alertKey, 'true');
+                        
+                        // Clean old alerts (keep only last 30 days)
+                        cleanOldAlerts();
+                    }
+                }
+            }
+
+            function formatDateString(date) {
+                // Format: YYYY-MM-DD for comparison
+                return date.getFullYear() + '-' + 
+                       String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+                       String(date.getDate()).padStart(2, '0');
+            }
+
+            function showServiceAlert(service, date, dayOfWeek) {
+                const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                const dayName = dayNames[dayOfWeek];
+                
+                // Create alert modal
+                const alertModal = document.createElement('div');
+                alertModal.className = 'service-alert-modal';
+                alertModal.innerHTML = `
+                    <div class="service-alert-overlay"></div>
+                    <div class="service-alert-content">
+                        <div class="service-alert-header" style="background: ${service.color}">
+                            <div class="service-alert-icon">${service.icon}</div>
+                            <h3>¡Hoy tenemos servicio!</h3>
+                            <button class="service-alert-close">&times;</button>
+                        </div>
+                        <div class="service-alert-body">
+                            <div class="service-alert-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>${dayName}, ${date}</span>
+                            </div>
+                            <div class="service-alert-service">
+                                <h4>${service.service}</h4>
+                                <div class="service-alert-time">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${service.time}</span>
+                                </div>
+                            </div>
+                            <div class="service-alert-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Casa de Avivamiento y Reino Cerete</span>
+                            </div>
+                            <div class="service-alert-message">
+                                <p>¡Te esperamos para compartir juntos en la presencia de Dios!</p>
+                            </div>
+                        </div>
+                        <div class="service-alert-actions">
+                            <button class="service-alert-btn service-alert-btn-primary" onclick="closeServiceAlert()">
+                                <i class="fas fa-check"></i> Entendido
+                            </button>
+                            <button class="service-alert-btn service-alert-btn-secondary" onclick="openGoogleMaps()">
+                                <i class="fas fa-directions"></i> Cómo llegar
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // Add styles
+                const alertStyles = document.createElement('style');
+                alertStyles.textContent = `
+                    .service-alert-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: serviceAlertFadeIn 0.3s ease-out;
+                    }
+
+                    .service-alert-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.7);
+                        backdrop-filter: blur(5px);
+                    }
+
+                    .service-alert-content {
+                        position: relative;
+                        background: white;
+                        border-radius: 20px;
+                        max-width: 500px;
+                        width: 90%;
+                        max-height: 90vh;
+                        overflow: hidden;
+                        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+                        animation: serviceAlertSlideIn 0.4s ease-out;
+                    }
+
+                    .service-alert-header {
+                        padding: 2rem;
+                        color: white;
+                        text-align: center;
+                        position: relative;
+                    }
+
+                    .service-alert-icon {
+                        font-size: 3rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .service-alert-header h3 {
+                        margin: 0;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+
+                    .service-alert-close {
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        font-size: 1.5rem;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transition: background 0.3s ease;
+                    }
+
+                    .service-alert-close:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                    }
+
+                    .service-alert-body {
+                        padding: 2rem;
+                    }
+
+                    .service-alert-date {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 1.1rem;
+                        color: #374151;
+                        font-weight: 600;
+                    }
+
+                    .service-alert-date i {
+                        color: #3b82f6;
+                        font-size: 1.2rem;
+                    }
+
+                    .service-alert-service h4 {
+                        margin: 0 0 0.75rem 0;
+                        font-size: 1.3rem;
+                        color: #1f2937;
+                    }
+
+                    .service-alert-time {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 1rem;
+                        color: #6b7280;
+                    }
+
+                    .service-alert-location {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 1.5rem;
+                        color: #6b7280;
+                    }
+
+                    .service-alert-location i {
+                        color: #ef4444;
+                    }
+
+                    .service-alert-message {
+                        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+                        padding: 1rem;
+                        border-radius: 12px;
+                        border-left: 4px solid #3b82f6;
+                    }
+
+                    .service-alert-message p {
+                        margin: 0;
+                        color: #1e40af;
+                        font-style: italic;
+                    }
+
+                    .service-alert-actions {
+                        padding: 1.5rem 2rem 2rem;
+                        display: flex;
+                        gap: 1rem;
+                        flex-wrap: wrap;
+                    }
+
+                    .service-alert-btn {
+                        flex: 1;
+                        padding: 0.875rem 1.5rem;
+                        border: none;
+                        border-radius: 10px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        min-width: 140px;
+                    }
+
+                    .service-alert-btn-primary {
+                        background: #3b82f6;
+                        color: white;
+                    }
+
+                    .service-alert-btn-primary:hover {
+                        background: #2563eb;
+                        transform: translateY(-2px);
+                    }
+
+                    .service-alert-btn-secondary {
+                        background: #f3f4f6;
+                        color: #374151;
+                        border: 2px solid #e5e7eb;
+                    }
+
+                    .service-alert-btn-secondary:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+
+                    @keyframes serviceAlertFadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+
+                    @keyframes serviceAlertSlideIn {
+                        from { 
+                            transform: translateY(-50px) scale(0.9);
+                            opacity: 0;
+                        }
+                        to { 
+                            transform: translateY(0) scale(1);
+                            opacity: 1;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .service-alert-content {
+                            width: 95%;
+                            margin: 1rem;
+                        }
+
+                        .service-alert-header,
+                        .service-alert-body {
+                            padding: 1.5rem;
+                        }
+
+                        .service-alert-actions {
+                            padding: 1rem 1.5rem 1.5rem;
+                            flex-direction: column;
+                        }
+
+                        .service-alert-btn {
+                            min-width: auto;
+                        }
+                    }
+                `;
+
+                document.head.appendChild(alertStyles);
+                document.body.appendChild(alertModal);
+
+                // Add event listeners
+                const closeBtn = alertModal.querySelector('.service-alert-close');
+                const overlay = alertModal.querySelector('.service-alert-overlay');
+                
+                closeBtn.addEventListener('click', closeServiceAlert);
+                overlay.addEventListener('click', closeServiceAlert);
+
+                // Auto-close after 30 seconds if not interacted with
+                setTimeout(() => {
+                    if (document.querySelector('.service-alert-modal')) {
+                        closeServiceAlert();
+                    }
+                }, 30000);
+            }
+
+            function closeServiceAlert() {
+                const modal = document.querySelector('.service-alert-modal');
+                if (modal) {
+                    modal.style.animation = 'serviceAlertFadeIn 0.3s ease-out reverse';
+                    setTimeout(() => {
+                        if (modal.parentNode) {
+                            modal.parentNode.removeChild(modal);
+                        }
+                    }, 300);
+                }
+            }
+
+            function openGoogleMaps() {
+                // Open Google Maps with the church location
+                window.open('https://maps.app.goo.gl/Sqohyuc9YkAKCstG6', '_blank');
+                closeServiceAlert();
+            }
+
+            function formatDate(date) {
+                const months = [
+                    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+                ];
+                
+                const day = date.getDate();
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                
+                return `${day} de ${month} de ${year}`;
+            }
+
+            function cleanOldAlerts() {
+                const keys = Object.keys(localStorage);
+                const alertKeys = keys.filter(key => key.startsWith('serviceAlert_'));
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                
+                alertKeys.forEach(key => {
+                    const datePart = key.split('_')[1]; // Format: YYYY-MM-DD
+                    if (datePart && datePart.includes('-')) {
+                        const alertDate = new Date(datePart);
+                        
+                        if (alertDate < thirtyDaysAgo) {
+                            localStorage.removeItem(key);
+                        }
+                    }
+                });
+            }
+
+            // Function to get next service dates (useful for debugging or future features)
+            function getNextServiceDates(count = 5) {
+                const now = new Date();
+                const todayString = formatDateString(now);
+                
+                return serviceDates2025
+                    .filter(serviceDate => serviceDate.dateString >= todayString)
+                    .slice(0, count)
+                    .map(serviceDate => ({
+                        date: serviceDate.displayDate,
+                        day: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'][serviceDate.dayOfWeek],
+                        service: serviceDate.service.service,
+                        time: serviceDate.service.time
+                    }));
+            }
+
+            // Make functions available globally
+            window.closeServiceAlert = closeServiceAlert;
+            window.openGoogleMaps = openGoogleMaps;
+            window.getNextServiceDates = getNextServiceDates;
+
+            // Generate events cards when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(generateEventsCards, 1000); // Small delay to ensure everything is loaded
+            });
+
+            function generateEventsCards() {
+                const eventsGrid = document.getElementById('events-grid');
+                if (!eventsGrid) return;
+
+                // Get next 6 service dates
+                const nextServices = getNextServiceDates(6);
+                
+                if (nextServices.length === 0) {
+                    eventsGrid.innerHTML = `
+                        <div class="no-events">
+                            <i class="fas fa-calendar-times"></i>
+                            <p>No hay servicios programados próximamente</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Generate event cards
+                const eventsHTML = nextServices.map((service, index) => {
+                    const serviceDate = new Date(serviceDates2025.find(s => s.displayDate === service.date).date);
+                    const day = serviceDate.getDate();
+                    const monthNames = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 
+                                       'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+                    const month = monthNames[serviceDate.getMonth()];
+                    
+                    const serviceColors = {
+                        'Discipulado del Reino': '#8b5cf6',
+                        'Servicio': serviceDate.getDay() === 0 ? '#f59e0b' : '#3b82f6',
+                        'Reunión de Jóvenes': '#10b981'
+                    };
+
+                    return `
+                        <div class="event-card" style="animation-delay: ${index * 0.1}s">
+                            <div class="event-date" style="background: ${serviceColors[service.service]}">
+                                <span class="day">${day}</span>
+                                <span class="month">${month}</span>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-header">
+                                    <img src="img/logo/logo.PNG" alt="Casa de Avivamiento y Reino" class="event-logo">
+                                    <h3>${service.service}</h3>
+                                </div>
+                                <div class="event-details">
+                                    <div class="event-day">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <span>${service.day}, ${service.date}</span>
+                                    </div>
+                                    <div class="event-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>${service.time}</span>
+                                    </div>
+                                    <div class="event-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Casa de Avivamiento y Reino</span>
+                                    </div>
+                                </div>
+                                ${index === 0 ? `
+                                    <div class="next-service-badge">
+                                        <i class="fas fa-star"></i>
+                                        <span>Próximo Servicio</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                eventsGrid.innerHTML = eventsHTML;
+            }
         })();
     </script>
 </body>
