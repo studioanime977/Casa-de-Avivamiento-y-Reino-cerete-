@@ -156,7 +156,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 20px 80px;
+    padding: 150px 20px 100px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
@@ -171,14 +171,14 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 2.5rem;
     opacity: 0.9;
     line-height: 1.6;
@@ -186,25 +186,31 @@ body {
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .btn {
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     border: none;
     border-radius: 50px;
     font-weight: 600;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s ease;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary {
     background: #fff;
-    color: #2563eb;
+    color: #667eea;
 }
 
 .btn-primary:hover {
@@ -282,18 +288,19 @@ body {
     margin: 0 auto;
 }
 
-/* Modern Cards Global Styles */
+/* Modern Cards Global Styles - PC Design */
 .modern-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    padding: 0;
 }
 
 .modern-card {
     background: white;
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 2rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -303,6 +310,7 @@ body {
     animation: slideInUp 0.6s ease-out forwards;
     position: relative;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .modern-card::before {
@@ -1795,7 +1803,7 @@ body {
     text-decoration: none;
     color: inherit;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .activity-card:hover {
@@ -2475,51 +2483,149 @@ body {
     }
 }
 
-/* Responsive Navigation Styles */
-@media (max-width: 768px) {
+/* Responsive Navigation Styles - Only for mobile devices */
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding: 2rem 0;
-        z-index: 999;
+        gap: 0;
     }
-
+    
     .nav-menu.active {
         left: 0;
     }
-
+    
     .nav-item {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
     }
-
+    
     .nav-link {
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
+        padding: 1rem 2rem;
         display: block;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(102, 126, 234, 0.1);
+    }
+    
+    .nav-logo span {
+        font-size: 1.2rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    /* Hero section mobile optimization */
+    .hero {
+        padding: 100px 15px 60px;
+        min-height: 70vh;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Cards mobile optimization */
+    .modern-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .modern-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Buttons mobile optimization */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        justify-content: center;
     }
 
-    .hamburger {
-        display: flex;
+    /* FOOTER - Mobile optimized */
+    .footer {
+        background: #1e293b;
+        color: white;
+        padding: 2rem 0 1.5rem;
+        text-align: center;
     }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    
+    .footer-logo {
+        margin-bottom: 1rem;
     }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    
+    .footer p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Contact form mobile optimization */
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    
+    /* Service schedule mobile */
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .schedule-item {
+        padding: 1rem;
+        text-align: center;
     }
 }
 
@@ -2556,7 +2662,7 @@ body {
 
     .hero-content h1 {
         font-size: 2.5rem;
-        line-height: 1.1;
+        line-height: 1.2;
         margin-bottom: 1.5rem;
     }
 
@@ -3139,100 +3245,95 @@ body {
         padding: 1rem;
         text-align: center;
     }
-
-
-
-    .footer p {
-        font-size: 1rem;
-        opacity: 0.9;
-    }
-
-    /* BUTTONS - Mobile enhanced with original colors */
-    .btn {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-primary {
-        background: #fff;
-        color: #2563eb;
-        border: none;
-    }
-
-    .btn-secondary {
-        background: transparent;
-        color: white;
-        border: 2px solid white;
-    }
-
-    .btn-secondary:hover {
-        background: white;
-        color: #2563eb;
-    }
-
-    /* TYPOGRAPHY - Mobile optimized */
-    h1, h2, h3, h4, h5, h6 {
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        line-height: 1.6;
-        margin-bottom: 1rem;
-    }
-
-    /* SPACING - Mobile consistent */
-    .container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    /* ANIMATIONS - Mobile smooth */
-    * {
-        transition: all 0.3s ease;
-    }
-
-    /* SCROLLBAR - Mobile hidden */
-    ::-webkit-scrollbar {
-        width: 0px;
-        background: transparent;
-    }
-
-    /* TOUCH OPTIMIZATION */
-    button, .btn, a {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-    }
-
-    /* VIEWPORT FIXES */
-    body {
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* PERFORMANCE OPTIMIZATIONS */
-    .hero, .about, .services, .events, .facebook-section, .instituto-section, .contact {
-        will-change: transform;
-        backface-visibility: hidden;
-    }
 }
 
-/* Mobile Navigation Styles */
-@media (max-width: 768px) {
+/* BUTTONS - Mobile enhanced with original colors */
+.btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: #fff;
+    color: #667eea;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* TYPOGRAPHY - Mobile optimized */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* SPACING - Mobile consistent */
+.container {
+    max-width: 100%;
+    padding: 0 20px;
+}
+
+/* ANIMATIONS - Mobile smooth */
+* {
+    transition: all 0.3s ease;
+}
+
+/* SCROLLBAR - Mobile hidden */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* TOUCH OPTIMIZATION */
+button, .btn, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* VIEWPORT FIXES */
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+.hero, .about, .services, .events, .facebook-section, .instituto-section, .contact {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Mobile Navigation Styles - Only for mobile devices */
+@media (max-width: 480px) {
     .hamburger {
         display: flex;
     }
@@ -3279,47 +3380,101 @@ body {
     .logo-img {
         height: 35px;
     }
-}
-
-@media (max-width: 480px) {
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    /* Hero section mobile optimization */
     .hero {
-        padding: 100px 15px 60px;
+        padding: 120px 15px 80px;
+        min-height: 70vh;
     }
-
-    .hero-title {
-        font-size: 2rem;
+    
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
-
-    .hero-subtitle {
+    
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Cards mobile optimization */
+    .modern-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .modern-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Buttons mobile optimization */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 1rem;
         font-size: 1rem;
+        justify-content: center;
     }
 
-    .container {
-        padding: 0 15px;
+    /* FOOTER - Mobile optimized */
+    .footer {
+        background: #1e293b;
+        color: white;
+        padding: 2rem 0 1.5rem;
+        text-align: center;
     }
-
-    .about,
-    .services,
-    .events,
-    .contact {
-        padding: 60px 0;
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
-
-    .about-card,
-    .service-content,
+    
+    .footer-logo {
+        margin-bottom: 1rem;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Contact form mobile optimization */
     .contact-form {
         padding: 1.5rem;
     }
-
-    .event-card {
-        padding: 1.5rem;
-        flex-direction: column;
-        text-align: center;
+    
+    .form-group {
+        margin-bottom: 1rem;
     }
-
-    .events-grid {
+    
+    .form-input,
+    .form-textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    
+    /* Service schedule mobile */
+    .schedule-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .schedule-item {
+        padding: 1rem;
+        text-align: center;
     }
 }
 
