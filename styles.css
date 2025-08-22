@@ -238,10 +238,306 @@ body {
     margin: 0 auto;
 }
 
+/* Modern Cards Global Styles */
+.modern-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.modern-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.modern-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.modern-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.modern-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.modern-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.modern-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.modern-card-header {
+    margin-bottom: 2rem;
+}
+
+.modern-card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.modern-card:hover .modern-card-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.modern-card-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.modern-card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.modern-card-body p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.card-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    color: #667eea;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.card-feature i {
+    font-size: 0.8rem;
+}
+
+/* Service Cards Specific Styles */
+.service-modern-card {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(102, 126, 234, 0.05);
+    padding: 0.75rem 1rem;
+    border-radius: 15px;
+    margin: 1rem 0;
+    color: #667eea;
+    font-weight: 600;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.service-schedule i {
+    font-size: 1rem;
+}
+
+.service-modern-card:hover .service-schedule {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Facebook Cards Specific Styles */
+.facebook-modern-card {
+    min-height: 450px;
+}
+
+.facebook-content-placeholder {
+    margin: 1.5rem 0;
+}
+
+.content-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.content-item:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(5px);
+}
+
+.content-item i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Facebook Section */
+.facebook-section {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+/* Events Section */
+.events {
+    padding: 100px 0;
+    background: white;
+}
+
+.loading-events {
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.loading-events .modern-card-icon i {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Comments Cards Specific Styles */
+.comments-modern-card {
+    min-height: 600px;
+    grid-column: span 2;
+}
+
+.facebook-interactions-card {
+    min-height: 400px;
+}
+
+.comments-modern-card .comment-form,
+.comments-modern-card .comments-display {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.comments-modern-card .admin-section {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.admin-toggle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.comment-submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem auto 0;
+}
+
+.comment-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive adjustments for comments grid */
+@media (max-width: 768px) {
+    .comments-modern-card {
+        grid-column: span 1;
+        min-height: auto;
+    }
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
     background: #f8fafc;
+}
+
+/* Services Section */
+.services {
+    padding: 100px 0;
+    background: white;
 }
 
 .about-grid {
