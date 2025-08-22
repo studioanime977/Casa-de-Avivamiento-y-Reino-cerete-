@@ -224,16 +224,16 @@ body {
     margin-bottom: 4rem;
 }
 
-.section-header h2 {
+.contact .section-header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1f2937;
+    color: white !important;
     margin-bottom: 1rem;
 }
 
-.section-header p {
+.contact .section-header p {
     font-size: 1.2rem;
-    color: #6b7280;
+    color: rgba(255, 255, 255, 0.9) !important;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -432,32 +432,144 @@ body {
     margin-right: 0.5rem;
 }
 
+/* Contact Section Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Contact Section */
 .contact {
     padding: 100px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
 }
 
-.contact-grid {
+.contact-cards-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.contact-item {
+.contact-form-section {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.contact-icon {
-    width: 60px;
-    height: 60px;
+.contact-form-section .contact-form {
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease-out forwards;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.contact-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.contact-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.contact-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-card-header {
+    margin-bottom: 1.5rem;
+}
+
+.contact-card-header .contact-icon {
+    width: 80px;
+    height: 80px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    animation: none;
+}
+
+.contact-card-header h3 {
+    color: white !important;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
 }
 
 .contact-icon i {
@@ -465,22 +577,45 @@ body {
     color: white;
 }
 
-.contact-details h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
+.contact-card-body {
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.contact-details p {
-    color: #6b7280;
+.contact-card-body p {
+    color: rgba(255, 255, 255, 0.95) !important;
     line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form {
     background: #f8fafc;
     padding: 2.5rem;
     border-radius: 20px;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.8s ease-out 0.3s forwards;
 }
 
 .form-group {
@@ -512,7 +647,7 @@ body {
 .map-link {
     display: inline-block;
     margin-top: 8px;
-    color: #6c5ce7;
+    color: rgba(255, 255, 255, 0.9) !important;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -520,7 +655,7 @@ body {
 }
 
 .map-link:hover {
-    color: #5a4fcf;
+    color: white !important;
     text-decoration: underline;
 }
 
@@ -529,19 +664,66 @@ body {
 }
 
 .contact-details a {
-    color: #6c5ce7;
+    color: rgba(255, 255, 255, 0.9) !important;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-details a:hover {
-    color: #5a4fcf;
+    color: white !important;
     text-decoration: underline;
 }
 
 /* Schedule Styles */
-.schedule-simple {
-    margin-top: 10px;
+.schedule-card {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.schedule-item {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.schedule-item .day {
+    display: block;
+    font-weight: 700;
+    color: white !important;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.schedule-item .time {
+    display: block;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
 }
 
 .schedule-row {
@@ -1717,208 +1899,87 @@ body {
 }
 
 /* Mobile Styles for 1080x2436 screens (iPhone X/11/12/13 and similar Android) */
-@media (max-width: 480px) {
-    /* MOBILE-FIRST COMPLETE REDESIGN */
-    
-    /* Reset container for mobile */
+@media (max-width: 414px) and (min-height: 800px) {
+    /* Viewport optimization for tall screens - RESTORED ORIGINAL */
     .container {
-        padding: 0 20px;
-        max-width: 100%;
+        padding: 0 16px;
     }
 
-    /* NAVIGATION - Compact and modern */
+    /* Navigation optimized for tall screens - SMALLER */
     .navbar {
-        padding: 0.75rem 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
     }
 
     .nav-container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .nav-logo {
-        font-size: 1.1rem;
-        font-weight: 700;
+        font-size: 1rem;
     }
 
     .logo-img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
-    /* Mobile menu improvements */
-    .nav-menu {
-        background: white;
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .nav-item {
-        margin: 0.5rem 0;
-    }
-
-    .nav-link {
-        font-size: 1.1rem;
-        padding: 1rem;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-        background: #f1f5f9;
-        color: #3b82f6;
-    }
-
-    /* HERO SECTION - Mobile optimized */
+    /* Hero section optimization - LARGER */
     .hero {
         min-height: 100vh;
-        padding: 120px 0 60px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        position: relative;
-        overflow: hidden;
+        padding: 100px 0 80px;
     }
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: white;
-    }
-
-    .hero-title {
-        font-size: 2.8rem;
-        font-weight: 800;
+    .hero-content h1 {
+        font-size: 2.5rem;
         line-height: 1.1;
         margin-bottom: 1.5rem;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .hero-subtitle {
-        font-size: 1.3rem;
-        margin-bottom: 3rem;
-        line-height: 1.4;
-        opacity: 0.95;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.5;
     }
 
-    /* Hero buttons mobile */
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-
-    .hero-buttons .btn {
-        width: 280px;
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: 50px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .hero-buttons .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-image {
-        display: none;
-    }
-
-    /* SECTIONS - Mobile optimized spacing and typography */
-    section {
-        padding: 4rem 0;
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
+    /* Section headers - Different sizes per section */
     .section-header h2 {
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #1e293b;
+        margin-bottom: 0.75rem;
     }
 
     .section-header p {
+        font-size: 0.95rem;
+    }
+
+    /* INICIO section - LARGER */
+    #inicio .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    #inicio .section-header p {
         font-size: 1.1rem;
-        color: #64748b;
-        line-height: 1.6;
-        max-width: 300px;
-        margin: 0 auto;
     }
 
-    /* ABOUT SECTION - Enhanced for mobile */
-    .about {
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    }
-
-    .about-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-card {
-        background: white;
-        padding: 2.5rem 2rem;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .about-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .card-icon i {
+    /* NOSOTROS section - LARGER */
+    #nosotros .section-header h2 {
         font-size: 2rem;
-        color: white;
     }
 
-    .about-card h3 {
+    #nosotros .section-header p {
+        font-size: 1.05rem;
+    }
+
+    /* SERVICIOS section - SMALLER */
+    #servicios .section-header h2 {
         font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #1e293b;
     }
 
-    .about-card p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #64748b;
+    #servicios .section-header p {
+        font-size: 0.9rem;
+    }
+
+    /* EVENTOS section - SMALLER */
+    #eventos .section-header h2 {
+        font-size: 1.5rem;
     }
     }
 
@@ -2159,13 +2220,13 @@ body {
         font-size: 1.4rem;
         font-weight: 600;
         margin-bottom: 1rem;
-        color: #1e293b;
+        color: #333;
     }
 
     .service-content p {
         font-size: 1rem;
         line-height: 1.6;
-        color: #64748b;
+        color: #6b7280;
         margin-bottom: 1.5rem;
     }
 
@@ -2186,13 +2247,13 @@ body {
         padding: 2rem;
         border-radius: 15px;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-left: 5px solid #3b82f6;
+        border-left: 5px solid #2563eb;
     }
 
     .event-date {
         font-size: 1.1rem;
         font-weight: 600;
-        color: #3b82f6;
+        color: #2563eb;
         margin-bottom: 0.5rem;
     }
 
@@ -2200,12 +2261,12 @@ body {
         font-size: 1.3rem;
         font-weight: 600;
         margin-bottom: 0.5rem;
-        color: #1e293b;
+        color: #333;
     }
 
     .event-details {
         font-size: 1rem;
-        color: #64748b;
+        color: #6b7280;
         line-height: 1.5;
     }
 
@@ -2274,7 +2335,7 @@ body {
     .contact-icon {
         width: 60px;
         height: 60px;
-        background: #3b82f6;
+        background: #2563eb;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -2311,14 +2372,14 @@ body {
 
     .form-input:focus,
     .form-textarea:focus {
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .btn-submit {
         width: 100%;
         padding: 1rem;
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        background: linear-gradient(135deg, #2563eb, #1e40af);
         color: white;
         border: none;
         border-radius: 10px;
@@ -2330,7 +2391,7 @@ body {
 
     .btn-submit:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
     }
 
     /* Mobile menu improvements */
@@ -2344,7 +2405,7 @@ body {
     .hamburger .bar {
         width: 25px;
         height: 3px;
-        background: #3b82f6;
+        background: #2563eb;
         margin: 3px 0;
         transition: 0.3s;
         border-radius: 2px;
@@ -2388,7 +2449,7 @@ body {
         opacity: 0.9;
     }
 
-    /* BUTTONS - Mobile enhanced */
+    /* BUTTONS - Mobile enhanced with original colors */
     .btn {
         padding: 1rem 2rem;
         font-size: 1rem;
@@ -2409,20 +2470,20 @@ body {
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        color: white;
+        background: #fff;
+        color: #2563eb;
         border: none;
     }
 
     .btn-secondary {
-        background: white;
-        color: #3b82f6;
-        border: 2px solid #3b82f6;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
     }
 
     .btn-secondary:hover {
-        background: #3b82f6;
-        color: white;
+        background: white;
+        color: #2563eb;
     }
 
     /* TYPOGRAPHY - Mobile optimized */
@@ -2960,9 +3021,10 @@ html {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.event-card:hover .event-date {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+.event-card:hover .contact-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    animation: none;
 }
 
 /* Responsive Design for Dynamic Events */
@@ -3240,12 +3302,12 @@ html {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #3b82f6;
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    border: 4px solid #667eea;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
 .instituto-info h3 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -3271,11 +3333,11 @@ html {
     padding: 0.75rem;
     background: #f1f5f9;
     border-radius: 10px;
-    border-left: 4px solid #3b82f6;
+    border-left: 4px solid #667eea;
 }
 
 .feature-item i {
-    color: #3b82f6;
+    color: #667eea;
     font-size: 1.2rem;
 }
 
@@ -3301,7 +3363,7 @@ html {
 }
 
 .instituto-facebook h3 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
     font-weight: 600;
@@ -3316,7 +3378,7 @@ html {
 }
 
 .instituto-programs h3 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 2rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -3339,15 +3401,15 @@ html {
 }
 
 .program-card:hover {
-    border-color: #3b82f6;
+    border-color: #667eea;
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
 }
 
 .program-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -3361,7 +3423,7 @@ html {
 }
 
 .program-card h4 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     font-weight: 600;
@@ -3382,7 +3444,7 @@ html {
 }
 
 .instituto-contact h3 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 2rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -3402,17 +3464,17 @@ html {
     padding: 1.5rem;
     background: #f8fafc;
     border-radius: 12px;
-    border-left: 4px solid #3b82f6;
+    border-left: 4px solid #667eea;
 }
 
 .contact-item-instituto i {
-    color: #3b82f6;
+    color: #667eea;
     font-size: 1.5rem;
     margin-top: 0.25rem;
 }
 
 .contact-item-instituto h4 {
-    color: #1e40af;
+    color: #667eea;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     font-weight: 600;
@@ -3426,14 +3488,14 @@ html {
 }
 
 .contact-item-instituto a {
-    color: #3b82f6;
+    color: #667eea;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
 }
 
 .contact-item-instituto a:hover {
-    color: #1d4ed8;
+    color: #764ba2;
     text-decoration: underline;
 }
 
